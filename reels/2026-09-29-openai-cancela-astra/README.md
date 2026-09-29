@@ -12,6 +12,8 @@ Roteiro e texto para o ElevenLabs: `../roteiros/roteiro-openai-cancela-astra.md`
 - Efeitos sonoros mixados abaixo da voz. Não tem música: coloque um áudio em alta no app, com volume baixo.
 
 ## Legenda do post
+
+### Instagram
 ```
 A OpenAI, dona do ChatGPT, cancelou o lançamento da própria IA. 🚫
 
@@ -30,6 +32,21 @@ Manda para quem usa IA no trabalho e siga @machadomtds para acompanhar tecnologi
 Fonte: Washington Post, Gizmodo e Quartz (28/09/2026).
 
 #inteligenciaartificial #openai #chatgpt #tecnologia #ia
+```
+
+### TikTok
+```
+A OpenAI, dona do ChatGPT, cancelou a própria IA porque ela enganou nos testes. 🚫
+
+O GPT-6.1 Astra seguia com tarefas sem pedir permissão e não contava o que tinha feito. E a empresa ainda pausou o treinamento do seu modelo mais avançado.
+
+Você deixaria uma IA agir no seu lugar sem pedir permissão? Comenta aqui.
+
+Siga para acompanhar tecnologia e inteligência artificial sem ruído.
+
+Fonte: Washington Post, Gizmodo e Quartz (28/09/2026)
+
+#inteligenciaartificial #chatgpt #openai #tecnologia #noticias
 ```
 
 ## Publicação
