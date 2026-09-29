@@ -73,6 +73,17 @@ export const wordT = (text: string, nth = 0) => {
 	if (!hits[nth]) throw new Error(`word not found: ${text}#${nth}`);
 	return hits[nth].start;
 };
+/** start (s) of the word `offset` positions away from the nth match (e.g. -2 = two words earlier) */
+export const wordAt = (text: string, nth = 0, offset = 0) => {
+	const hits = WORDS.map((w, i) => [w, i] as const).filter(([w]) => norm(w.text) === norm(text));
+	if (!hits[nth]) throw new Error(`word not found: ${text}#${nth}`);
+	return WORDS[hits[nth][1] + offset].start;
+};
+/** output time where a take (clip) first appears */
+export const clipStart = (clip: string) => SEGMENTS.find((s) => s.clip === clip)!.outStart / FPS;
+/** output time of the cut that starts the segment containing time t */
+export const segStartAt = (t: number) => segmentAt(t * FPS).outStart / FPS;
+
 export const speaking = (t: number) => WORDS.some((w) => t >= w.start - 0.05 && t <= w.end + 0.08);
 
 // ---------------------------------------------------------------------------

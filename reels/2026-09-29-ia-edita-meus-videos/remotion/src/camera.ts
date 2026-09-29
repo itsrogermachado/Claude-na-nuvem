@@ -1,5 +1,5 @@
 import {Easing, interpolate} from 'remotion';
-import {CUTS, FPS, H, SRC_H, SRC_W, W, faceX, faceY, palm, segmentAt, wordT} from './timeline';
+import {FPS, H, SRC_H, SRC_W, W, clipStart, faceX, faceY, palm, segStartAt, segmentAt, wordAt, wordT} from './timeline';
 
 // ---------------------------------------------------------------------------
 // Key moments (output seconds) — all derived from the transcript / cuts
@@ -8,14 +8,14 @@ export const T = {
 	hundred: wordT('100%'),
 	claude1: wordT('Claude', 0),
 	nenhum: wordT('nenhum'),
-	claudeWinIn: CUTS[1],
-	claudeWinOut: CUTS[2],
+	claudeWinIn: wordT('Basicamente', 0) - 0.08, // his hand goes up here
+	claudeWinOut: clipStart('c2'),
 	gravo: wordT('gravo', 0),
 	arquivo: wordT('arquivo'),
 	claude2: wordT('Claude', 1),
 	resto: wordT('resto,'),
 	absurdo: wordT('absurdo'),
-	stepsIn: CUTS[4],
+	stepsIn: clipStart('c3'),
 	step1: wordT('Primeiro'),
 	palavra: wordT('palavra', 0),
 	step2: wordT('Segundo'),
@@ -24,12 +24,14 @@ export const T = {
 	step3: wordT('Terceiro'),
 	javascript: wordT('JavaScript', 0),
 	roteiro: wordT('roteiro'),
-	trackIn: CUTS[10],
-	claude3: wordT('Claude', 2),
+	scriptIn: wordAt('montou', 0, -2), // "E ele montou também esse roteiro"
+	trackIn: clipStart('c4'),
+	claude3: wordT('Claude', 3),
+	jsEveryone: wordT('JavaScript', 2), // "muita gente ... não edita em JavaScript"
 	rastreou: wordT('rastrou'),
 	quadro: wordT('quadro', 0),
 	incrivel: wordT('incrível'),
-	trackOut: CUTS[14],
+	trackOut: segStartAt(wordT('Resumindo')),
 	gravo2: wordT('gravo', 1),
 	ia: wordT('IA', 0),
 	passo: wordT('passo', 0),
@@ -63,14 +65,12 @@ export const layoutAt = (t: number): LayoutKind => {
 
 /** Gentle zoom for full-screen shots (1 = full source height); kept low to protect sharpness */
 const zoomFull = (t: number) => {
-	if (t < CUTS[1]) return 1 + 0.04 * (t / CUTS[1]);
-	if (t < CUTS[3]) return 1.06;
-	if (t < T.absurdo - 0.02) return interpolate(t, [CUTS[3], T.absurdo], [1.0, 1.03]);
+	if (t < T.claudeWinIn) return 1 + 0.04 * (t / T.claudeWinIn);
+	if (t < T.claudeWinOut) return 1.04;
+	if (t < T.absurdo - 0.02) return interpolate(t, [T.claudeWinOut, T.absurdo], [1.0, 1.03]);
 	if (t < T.stepsIn) return interpolate(t, [T.absurdo - 0.02, T.absurdo + 0.2], [1.03, 1.1], {extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
-	if (t < CUTS[15]) return 1.05;
-	return interpolate(t, [CUTS[15], CUTS[15] + 4], [1.0, 1.04], {extrapolateRight: 'clamp'});
+	return interpolate(t, [T.trackOut, T.trackOut + 6], [1.02, 1.06], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 };
-
 /** Horizontal crop origin for the wide layouts */
 const wideX0 = (frame: number, kind: LayoutKind, cw: number) => {
 	const fx = faceX(frame);

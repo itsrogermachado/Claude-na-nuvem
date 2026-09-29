@@ -3,7 +3,7 @@ import React from 'react';
 import {interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {PANEL_STEPS, T} from '../camera';
 import {C, MONO, SANS, clamp01, easeOut, prog, springAt} from '../theme';
-import {CUTS, FPS, SEGMENTS, W, WORDS} from '../timeline';
+import {FPS, SEGMENTS, W, WORDS} from '../timeline';
 import {ClaudeGlyph} from './Hook';
 import {PanelSlot} from './Panels';
 
@@ -201,8 +201,8 @@ const SCRIPT_LINES = [
 ];
 /** "ele montou também esse roteiro pra mim" — the actual script, as a document */
 const Script: React.FC<{frame: number; t: number}> = ({frame, t}) => {
-	const s = springAt(frame, CUTS[9], {damping: 14, stiffness: 150});
-	const scroll = prog(t, CUTS[9] + 0.8, 1.8) * 140;
+	const s = springAt(frame, T.scriptIn, {damping: 14, stiffness: 150});
+	const scroll = prog(t, T.scriptIn + 0.8, 2.4) * 140;
 	return (
 		<>
 			<div style={{position: 'absolute', top: 165, left: 70, right: 70, display: 'flex', alignItems: 'center', gap: 18, opacity: clamp01(s * 2)}}>
@@ -255,7 +255,7 @@ export const StepsPanel: React.FC = () => {
 	const t = frame / FPS;
 	if (t < T.stepsIn || t >= T.trackIn) return null;
 	const step = t < T.step2 - 0.1 ? 1 : t < T.step3 - 0.1 ? 2 : 3;
-	const isScript = t >= CUTS[9] - 0.03;
+	const isScript = t >= T.scriptIn - 0.03;
 	return (
 		<PanelSlot height={PANEL_STEPS}>
 			{!isScript && <Header step={step} t={t} />}

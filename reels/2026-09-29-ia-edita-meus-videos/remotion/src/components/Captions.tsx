@@ -4,19 +4,29 @@ import {PANEL_CLAUDE, PANEL_STEPS, T, layoutAt, panelHeight} from '../camera';
 import {C, SANS, clamp01, outlined, springAt} from '../theme';
 import {FPS, W, WORDS, Word} from '../timeline';
 
-// "ele ouve o | o vídeo": the first "o" sits on a cut and is barely audible — keep one on screen
-const SPOKEN = WORDS.filter((w, i) => !(i > 0 && w.text === 'o' && WORDS[i - 1].text === 'o' && w.seg !== WORDS[i - 1].seg));
-const SIZES = [3, 2, 1, 2, 4, 4, 4, 3, 4, 3, 5, 4, 1, 4, 3, 3, 1, 4, 2, 3, 3, 1, 2, 2, 2, 3, 3, 2, 5, 3, 3, 3, 3, 2, 4, 3, 4, 1, 2, 3, 3, 4, 4, 2, 4, 4];
-if (SIZES.reduce((a, b) => a + b, 0) !== SPOKEN.length) {
-	throw new Error(`caption chunks cover ${SIZES.reduce((a, b) => a + b, 0)} words, transcript has ${SPOKEN.length}`);
-}
+const WEAK = new Set(['o', 'os', 'a', 'as', 'e', 'em', 'de', 'do', 'da', 'que', 'um', 'uma', 'no', 'na', 'pra', 'para', 'eu', 'ele', 'se', 'me', 'te', 'isso', 'essa', 'esse', 'mas']);
+const norm = (x: string) => x.toLowerCase().replace(/[.,?!]/g, '');
+// Automatic phrasing: short, punchy chunks that break on punctuation and pauses
 const CHUNKS: Word[][] = (() => {
-	let k = 0;
-	return SIZES.map((n) => {
-		const c = SPOKEN.slice(k, k + n);
-		k += n;
-		return c;
+	const out: Word[][] = [];
+	let cur: Word[] = [];
+	const len = (c: Word[]) => c.reduce((a, w) => a + w.text.length + 1, 0);
+	WORDS.forEach((w, i) => {
+		const prev = WORDS[i - 1];
+		const breakHere =
+			cur.length > 0 &&
+			(cur.length >= 4 || len(cur) + w.text.length > 20 || /[.,?!]$/.test(prev.text) || w.start - prev.end > 0.28 || w.seg !== prev.seg);
+		if (breakHere) {
+			// never leave a dangling "o / os / em / que / de…" at the end of a line when breaking for length
+			const hard = /[.,?!]$/.test(prev.text) || w.start - prev.end > 0.28 || w.seg !== prev.seg;
+			const carry = !hard && cur.length > 1 && WEAK.has(norm(cur[cur.length - 1].text)) ? [cur.pop()!] : [];
+			out.push(cur);
+			cur = carry;
+		}
+		cur.push(w);
 	});
+	if (cur.length) out.push(cur);
+	return out;
 })();
 const TIMES = CHUNKS.map((c, i) => {
 	const start = c[0].start - 0.05;
@@ -34,7 +44,7 @@ const KEY_GREEN = new Set([
 	'TRANSCREVE', 'PALAVRA', 'CORTA', 'SILÊNCIOS', 'ERROS', 'PAUSAZINHAS', 'ANIMAÇÕES', 'JAVASCRIPT', 'ROTEIRO', 'LOGO', 'MÃO', 'RASTREOU', 'QUADRO',
 	'INCRÍVEL', 'IA', 'EDITA', 'PASSO', 'DIRECT', 'ENSINO',
 ]);
-const KEY_CLAUDE = new Set(['CLAUDE', 'OPUS', '5.5', 'QUERIDO']);
+const KEY_CLAUDE = new Set(['CLAUDE', 'OPUS', '5.5', 'QUERIDO', 'CODE']);
 
 export const Captions: React.FC = () => {
 	const frame = useCurrentFrame();

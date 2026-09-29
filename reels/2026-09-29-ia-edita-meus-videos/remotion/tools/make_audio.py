@@ -85,7 +85,7 @@ write(f'{OUT}/sfx/shimmer.wav', shimmer())
 write(f'{OUT}/sfx/magic.wav', magic())
 
 # ---------------- music bed ----------------
-DUR = 2477 / 60 + 0.5
+DUR = 3711 / 60 + 0.5
 N = int(DUR * SR); BPM = 96; beat = 60 / BPM; bar = 4 * beat
 mus = np.zeros((N, 2))
 def hz(m): return 440 * 2 ** ((m - 69) / 12)
@@ -128,7 +128,7 @@ mus += (lp(rng.standard_normal(N), 5000) * 0.006)[:, None]
 g = np.ones(N)
 def ramp(a, b, v0, v1):
     i, j = int(a * SR), int(b * SR); g[i:j] = np.linspace(v0, v1, j - i)
-for drop in (12.867, 35.183):
+for drop in (17.017, 54.95):
     ramp(drop - 0.45, drop - 0.3, 1, 0.25); g[int((drop - 0.3) * SR):int(drop * SR)] = 0.25; ramp(drop, drop + 0.03, 0.25, 1)
 g[:int(0.4 * SR)] *= np.linspace(0.0, 1, int(0.4 * SR))
 ramp(DUR - 1.2, DUR, 1, 0)

@@ -76,6 +76,13 @@ export const TrackPanel: React.FC = () => {
 					</svg>
 				)}
 				<div style={{position: 'absolute', top: 725, width: '100%', textAlign: 'center', fontFamily: MONO, fontSize: 28, color: 'rgba(205,235,220,0.8)', opacity: fade}}>21 PONTOS · 60 QUADROS POR SEGUNDO</div>
+				{t >= T.jsEveryone - 0.1 && (
+					<div style={{position: 'absolute', top: 700, width: '100%', display: 'flex', justifyContent: 'center'}}>
+						<div style={{padding: '12px 30px', borderRadius: 36, background: C.green, fontFamily: SANS, fontWeight: 900, fontSize: 40, color: C.black, transform: `scale(${springAt(frame, T.jsEveryone - 0.1, {damping: 11, stiffness: 220})})`, boxShadow: '0 0 0 4px #000'}}>
+							FEITO EM JAVASCRIPT
+						</div>
+					</div>
+				)}
 				{chip > 0.001 && (
 					<div style={{position: 'absolute', top: 790, width: '100%', display: 'flex', justifyContent: 'center'}}>
 						<div style={{height: 84, padding: '0 36px 0 24px', borderRadius: 42, background: C.claude, display: 'flex', alignItems: 'center', gap: 16, transform: `scale(${chip})`, boxShadow: '0 0 0 4px #000', fontFamily: SANS, fontWeight: 900, fontSize: 42, color: C.white}}>

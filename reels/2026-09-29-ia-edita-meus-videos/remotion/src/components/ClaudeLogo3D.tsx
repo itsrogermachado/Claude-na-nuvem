@@ -88,7 +88,7 @@ const FLY = 0.42;
 export const ClaudeLogo3D: React.FC = () => {
 	const frame = useCurrentFrame();
 	const t = frame / FPS;
-	const a = APPEARANCES.find((x) => t >= x.tIn - 0.02 && t < x.tFly + FLY + (x.burst ? 0.35 : 0));
+	const a = APPEARANCES.find((x) => t >= x.tIn - 0.02 && t < (x.burst ? T.trackOut : x.tFly + FLY));
 	if (!a) return null;
 
 	const cam = camera(frame);
@@ -105,7 +105,8 @@ export const ClaudeLogo3D: React.FC = () => {
 	const x = from.x + (tgt.x - from.x) * fly;
 	const y = from.y + (tgt.y - from.y) * fly - Math.sin(fly * Math.PI) * 140;
 	// after a "burst" landing the logo keeps floating in the panel, then shrinks away at the cut
-	const outro = a.burst ? interpolate(t, [a.tFly + FLY + 0.12, a.tFly + FLY + 0.32], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : fly >= 1 ? 0 : 1;
+	// after landing in the panel it keeps floating there until the summary
+	const outro = a.burst ? interpolate(t, [T.trackOut - 0.2, T.trackOut], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : fly >= 1 ? 0 : 1;
 	const scaleEnd = interpolate(fly, [0, 1], [1, a.endScale]);
 	const size = base * pop * scaleEnd * outro * (fly > 0 ? 1 : interpolate(pres, [0, 1], [0.35, 1]));
 	if (size < 2) return null;

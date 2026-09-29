@@ -2,7 +2,7 @@ import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
 import {T} from '../camera';
 import {C, SANS, clamp01, easeOut, prog, springAt} from '../theme';
-import {CUTS, FPS, W} from '../timeline';
+import {FPS, W} from '../timeline';
 import {ClaudeGlyph} from './Hook';
 
 const NODE_Y = 330;
@@ -24,7 +24,7 @@ const DoneIcon = () => (
 export const Flow: React.FC = () => {
 	const frame = useCurrentFrame();
 	const t = frame / FPS;
-	const t0 = CUTS[2];
+	const t0 = T.claudeWinOut;
 	if (t < t0 || t >= T.stepsIn) return null;
 	const card = springAt(frame, t0, {damping: 15, stiffness: 170});
 	const n = [springAt(frame, T.gravo - 0.08, {damping: 11}), springAt(frame, T.claude2 - 0.05, {damping: 11}), springAt(frame, T.resto - 0.1, {damping: 11})];

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Audio, Sequence, staticFile} from 'remotion';
 import {T} from '../camera';
-import {CUTS, DURATION, FPS, speaking} from '../timeline';
+import {DURATION, FPS, speaking} from '../timeline';
 
 type Cue = {t: number; file: string; vol: number};
 
@@ -16,7 +16,7 @@ const CUES: Cue[] = [
 	{t: T.nenhum + 0.3, file: 'click', vol: 0.35},
 	{t: T.claudeWinOut - 0.87, file: 'whoosh_up', vol: 0.25},
 	{t: T.claudeWinOut - 0.45, file: 'pop', vol: 0.3},
-	{t: CUTS[2], file: 'whoosh_down', vol: 0.3},
+	{t: T.claudeWinOut, file: 'whoosh_down', vol: 0.3},
 	{t: T.gravo - 0.08, file: 'pop', vol: 0.28},
 	{t: T.arquivo - 0.05, file: 'whoosh_short', vol: 0.25},
 	{t: T.claude2 - 0.05, file: 'pop_hi', vol: 0.28},
@@ -31,7 +31,8 @@ const CUES: Cue[] = [
 	{t: T.step3, file: 'whoosh_short', vol: 0.28},
 	...Array.from({length: 14}, (_, i) => ({t: T.step3 + 0.25 + i * 0.105, file: `key${i % 4}`, vol: 0.17})),
 	{t: T.javascript, file: 'pop_hi', vol: 0.28},
-	{t: CUTS[9], file: 'whoosh_up', vol: 0.3},
+	{t: T.scriptIn, file: 'whoosh_up', vol: 0.3},
+	{t: T.jsEveryone - 0.1, file: 'pop_hi', vol: 0.3},
 	{t: T.trackIn, file: 'whoosh_down', vol: 0.35},
 	{t: T.trackIn + 0.05, file: 'magic', vol: 0.4},
 	{t: T.claude3 - 0.05, file: 'pop', vol: 0.3},
