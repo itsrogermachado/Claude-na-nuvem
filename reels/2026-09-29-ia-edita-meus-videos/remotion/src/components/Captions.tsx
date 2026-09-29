@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PANEL_CLAUDE, T, layoutAt, panelHeight} from '../camera';
+import {PANEL_CLAUDE, PANEL_STEPS, T, layoutAt, panelHeight} from '../camera';
 import {C, SANS, clamp01, outlined, springAt} from '../theme';
 import {FPS, W, WORDS, Word} from '../timeline';
 
@@ -45,7 +45,8 @@ export const Captions: React.FC = () => {
 	const kind = layoutAt(t);
 	const panel = panelHeight(t);
 	// full screen: under the chin, above Instagram's bottom UI; with a panel: just under the seam
-	const cy = kind === 'full' ? 1500 : panel + (kind === 'claude' ? Math.min(118, 118 * (panel / PANEL_CLAUDE)) : 92);
+	// anchor to the panel's final height so captions don't ride along while it slides in
+	const cy = kind === 'full' ? 1500 : kind === 'claude' ? PANEL_CLAUDE + 118 : kind === 'steps' ? PANEL_STEPS + 92 : Math.max(panel, PANEL_STEPS) + 92;
 
 	const pop = springAt(frame, TIMES[idx].start, {damping: 13, stiffness: 220});
 	return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PANEL_CLAUDE, T, panelHeight} from '../camera';
+import {PANEL_CLAUDE, T} from '../camera';
 import {CLAUDE_PATH} from '../claudePath';
 import {C, SANS, clamp01, easeOut, outlined, prog, springAt} from '../theme';
 import {FPS, W} from '../timeline';
@@ -20,9 +20,6 @@ export const Hook: React.FC = () => {
 	const frame = useCurrentFrame();
 	const t = frame / FPS;
 	if (t >= T.claudeWinOut) return null;
-	// in the Claude layout everything rides inside the panel (offset follows the panel as it opens)
-	const panel = panelHeight(t);
-	const dy = t >= T.claudeWinIn ? panel - PANEL_CLAUDE : 0;
 
 	const l1 = springAt(frame, 0.0, {damping: 16, stiffness: 200});
 	const big = springAt(frame, T.hundred - 0.1, {damping: 10, stiffness: 180});
@@ -38,7 +35,7 @@ export const Hook: React.FC = () => {
 	const strike = prog(t, T.nenhum + 0.3, 0.3, easeOut);
 
 	return (
-		<div style={{position: 'absolute', inset: 0, transform: `translateY(${dy}px)`, opacity: 1 - exit}}>
+		<div style={{position: 'absolute', inset: 0, opacity: 1 - exit}}>
 			{/* title block */}
 			<div style={{position: 'absolute', inset: 0, transform: `translateX(${-swap * W}px)`, opacity: 1 - swap}}>
 				<div style={{position: 'absolute', top: 196, width: W, textAlign: 'center', fontFamily: SANS, fontWeight: 900, fontSize: 60, color: C.white, opacity: clamp01(l1 * 2), transform: `translateY(${(1 - l1) * -30}px)`, ...outlined(8)}}>
