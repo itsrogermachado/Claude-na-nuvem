@@ -1,0 +1,352 @@
+[
+ {
+  "slug": "tse-deepfake-eleicoes-2026",
+  "cat": "news",
+  "titulo": "O TSE definiu o que é deepfake nas eleições de 2026, e a punição pode chegar à cassação.",
+  "fonte": "TSE, Estado de Minas e Migalhas (setembro/2026)",
+  "slides": 7
+ },
+ {
+  "slug": "amd-compra-world-labs",
+  "cat": "news",
+  "titulo": "A AMD vai pagar US$ 8,2 bilhões pela startup da Fei-Fei Li.",
+  "fonte": "TechCrunch, CNBC e Bloomberg (28/09/2026)",
+  "slides": 6
+ },
+ {
+  "slug": "youtube-feed-com-ia",
+  "cat": "news",
+  "titulo": "O YouTube vai deixar você montar o seu próprio algoritmo com IA.",
+  "fonte": "TechCrunch (23/09/2026)",
+  "slides": 6
+ },
+ {
+  "slug": "google-home-agentes-de-ia",
+  "cat": "news",
+  "titulo": "Claude e ChatGPT agora podem controlar a casa inteligente do Google.",
+  "fonte": "TechCrunch (16/09/2026) e Android Police",
+  "slides": 6
+ },
+ {
+  "slug": "ray-ban-meta-gen-3",
+  "cat": "news",
+  "titulo": "Os novos óculos com IA da Meta chegaram: mais bateria e preço maior.",
+  "fonte": "Engadget, 9to5Google e Android Authority (23/09/2026)",
+  "slides": 6
+ },
+ {
+  "slug": "oracle-ia-e-empregos",
+  "cat": "news",
+  "titulo": "A Oracle cortou 21 mil vagas e citou a IA no documento oficial.",
+  "fonte": "CNBC e Forbes (23/06/2026)",
+  "slides": 6
+ },
+ {
+  "slug": "7-elementos-de-um-site-que-vende",
+  "cat": "site",
+  "titulo": "Site bonito não é o mesmo que site que vende. Estes são os 7 elementos de um site de alta conversão.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "instagram-ou-site",
+  "cat": "site",
+  "titulo": "Instagram ou site? Essa é a pergunta errada.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "5-erros-que-afastam-clientes-do-site",
+  "cat": "site",
+  "titulo": "5 erros que fazem o cliente sair do seu site em segundos.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-landing-page",
+  "cat": "site",
+  "titulo": "Landing page: a página certa quando você quer que o visitante faça uma coisa só.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "site-lento-custa-clientes",
+  "cat": "site",
+  "titulo": "Site lento custa clientes. Veja como testar e melhorar a velocidade do seu.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "dominio-proprio",
+  "cat": "site",
+  "titulo": "Domínio próprio: o endereço do seu negócio na internet.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "botao-de-whatsapp-no-site",
+  "cat": "site",
+  "titulo": "O botão de WhatsApp no site pode ser o caminho mais curto até a venda. Veja como fazer do jeito certo.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "checklist-antes-de-publicar-um-site",
+  "cat": "site",
+  "titulo": "Checklist: 10 pontos para conferir antes de colocar um site no ar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "como-o-google-encontra-seu-site",
+  "cat": "site",
+  "titulo": "Seu site não aparece no Google? Veja como o Google encontra uma página.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "pagina-sobre-que-gera-confianca",
+  "cat": "site",
+  "titulo": "A página Sobre do seu site não é sobre você.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "prova-social-no-site",
+  "cat": "site",
+  "titulo": "O que outros clientes dizem pesa na decisão de quem ainda não te conhece.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "nutricionista-precisa-de-site",
+  "cat": "site",
+  "titulo": "Nutricionista precisa de site? Se o paciente pesquisa antes de marcar consulta, sim.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "perguntas-antes-de-contratar-um-site",
+  "cat": "site",
+  "titulo": "Vai contratar um site? Faça estas 6 perguntas antes de fechar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "site-pensado-para-celular",
+  "cat": "site",
+  "titulo": "Seu site foi pensado para o celular ou só funciona no celular?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "lgpd-no-seu-site",
+  "cat": "site",
+  "titulo": "Seu site coleta nome, e-mail ou telefone? Então a LGPD vale para ele.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-botao-do-seu-site",
+  "cat": "site",
+  "titulo": "O botão do seu site diz Enviar? Uma palavra muda o que o cliente entende.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-consegue-criar-um-site",
+  "cat": "site",
+  "titulo": "A IA consegue criar um site. Mas não sabe o que o seu cliente precisa ouvir.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "whatsapp-business-recursos",
+  "cat": "site",
+  "titulo": "WhatsApp Business: 5 recursos para organizar o atendimento do seu negócio.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-agente-de-ia",
+  "cat": "ia",
+  "titulo": "Chatbot responde. Agente de IA faz. Entenda a diferença.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "5-usos-de-ia-no-seu-negocio",
+  "cat": "ia",
+  "titulo": "5 formas de usar IA no seu negócio a partir de hoje, sem programar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "como-escrever-um-bom-prompt",
+  "cat": "ia",
+  "titulo": "A resposta da IA é tão boa quanto o pedido. Use esta estrutura de 4 partes.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "5-prompts-para-empresarios",
+  "cat": "ia",
+  "titulo": "5 prompts prontos para empresários. Copie e adapte.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-delegar-para-a-ia",
+  "cat": "ia",
+  "titulo": "O que delegar para a IA, e o que nunca deve sair das suas mãos.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-nao-colar-na-ia",
+  "cat": "ia",
+  "titulo": "Cuidado com o que você cola numa IA. Alguns dados nunca deveriam sair da sua empresa.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "por-que-a-ia-inventa-coisas",
+  "cat": "ia",
+  "titulo": "A IA pode inventar uma informação com toda a confiança. Isso se chama alucinação.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-no-atendimento-do-whatsapp",
+  "cat": "ia",
+  "titulo": "IA no atendimento do WhatsApp: ajuda ou atrapalha? Depende da configuração.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "conteudo-com-ia-sem-parecer-robo",
+  "cat": "ia",
+  "titulo": "Como criar conteúdo com IA sem parecer robô.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-sao-tokens-de-ia",
+  "cat": "ia",
+  "titulo": "Tokens: a unidade que explica o custo e o limite das conversas com IA.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "como-escolher-uma-ferramenta-de-ia",
+  "cat": "ia",
+  "titulo": "Tem uma ferramenta de IA nova toda semana. Use estes 5 critérios para escolher.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-planilhas",
+  "cat": "ia",
+  "titulo": "Você não precisa decorar fórmulas de planilha. A IA escreve para você.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "3-prompts-para-revisar-textos",
+  "cat": "ia",
+  "titulo": "Use a IA como revisora, não só como escritora.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-reunioes",
+  "cat": "ia",
+  "titulo": "Reunião boa termina com próximos passos. A IA ajuda nisso.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-mcp",
+  "cat": "tech",
+  "titulo": "Você vai ouvir muito falar em MCP. Entenda em 1 minuto.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-npu",
+  "cat": "tech",
+  "titulo": "Notebooks e celulares novos vêm com NPU. Entenda o que é.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-api",
+  "cat": "tech",
+  "titulo": "API explicada para quem não é programador: pense num garçom.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "onde-fica-a-nuvem",
+  "cat": "tech",
+  "titulo": "Seus arquivos estão na nuvem. Mas onde fica a nuvem?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "verificacao-em-duas-etapas",
+  "cat": "tech",
+  "titulo": "Se a sua senha vazar, o que protege a sua conta? A verificação em duas etapas.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "regra-3-2-1-de-backup",
+  "cat": "tech",
+  "titulo": "A regra 3-2-1 de backup que toda empresa deveria seguir.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "gerenciador-de-senhas",
+  "cat": "tech",
+  "titulo": "Usa a mesma senha em vários sites? Um vazamento pode abrir todas as portas.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "como-reconhecer-phishing",
+  "cat": "tech",
+  "titulo": "Aquele e-mail do banco pode ser golpe. 5 sinais de phishing.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "golpes-no-pix",
+  "cat": "tech",
+  "titulo": "O Pix é rápido para você e para o golpista. Veja os golpes mais comuns.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "cuidado-com-wi-fi-publico",
+  "cat": "tech",
+  "titulo": "Wi-Fi de graça no aeroporto ou no café? Cuidado com o que você faz nele.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "atualizacoes-de-seguranca",
+  "cat": "tech",
+  "titulo": "Aquela atualização que você vive adiando pode fechar uma brecha de segurança.",
+  "fonte": "SecurityWeek (setembro/2026), para o exemplo da Cisco",
+  "slides": 6
+ },
+ {
+  "slug": "golpe-de-voz-clonada-com-ia",
+  "cat": "tech",
+  "titulo": "Golpistas já usam IA para imitar vozes. Veja como se proteger.",
+  "fonte": "",
+  "slides": 6
+ }
+]

@@ -1,0 +1,7 @@
+A regra 3-2-1 de backup que toda empresa deveria seguir.
+
+3 cópias, 2 tipos de armazenamento e 1 cópia fora do local. E teste se o backup realmente restaura.
+
+Salve para consultar depois e siga @machadomtds para acompanhar tecnologia e IA sem ruído.
+
+#backup #seguranca #tecnologia #empreendedorismo #dados

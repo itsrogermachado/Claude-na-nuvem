@@ -1,0 +1,7 @@
+Tokens: a unidade que explica o custo e o limite das conversas com IA.
+
+Token é um pedaço de texto. As APIs cobram por milhão de tokens, e cada modelo tem uma janela de contexto.
+
+Salve para consultar depois e siga @machadomtds para acompanhar tecnologia e IA sem ruído.
+
+#inteligenciaartificial #tokens #tecnologia #chatgpt #ia

@@ -1,0 +1,7 @@
+API explicada para quem não é programador: pense num garçom.
+
+A API leva o pedido de um sistema e traz a resposta de outro. É assim que o site calcula frete, faz login com Google e usa IA.
+
+Salve para consultar depois e siga @machadomtds para acompanhar tecnologia e IA sem ruído.
+
+#api #tecnologia #programacao #inteligenciaartificial #negocios
