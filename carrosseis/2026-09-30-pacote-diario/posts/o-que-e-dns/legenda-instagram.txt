@@ -1,0 +1,7 @@
+DNS: a agenda de contatos da internet.
+
+Você digita um nome, o DNS encontra o endereço numérico do servidor. É por isso que o domínio precisa estar configurado para o site aparecer.
+
+Salve para consultar depois e siga @machadomtds para acompanhar tecnologia e IA sem ruído.
+
+#dns #dominio #tecnologia #internet #criacaodesites

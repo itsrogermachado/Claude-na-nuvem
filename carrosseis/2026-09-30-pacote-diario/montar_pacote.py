@@ -1,14 +1,15 @@
-"""Monta o pacote diário: pasta por post (imagens + legendas), calendário CSV/JSON, instruções e zip."""
+"""Monta o pacote do Instagram: 2 posts por dia, pasta por post (imagens + legenda), calendário CSV/JSON, instruções e zip."""
 import csv, datetime as dt, json, pathlib, shutil, zipfile
 from PIL import Image
 from conteudo import POSTS
+import conteudo2  # noqa: F401  (adiciona o lote 2 à lista POSTS)
 from gerar import legendas
 
 AQUI = pathlib.Path(__file__).parent
 TEND = AQUI.parent / "2026-09-29-tendencias"
 OUT = AQUI / "pacote"
 INICIO = dt.date(2026, 9, 30)
-HORA = "12:00"
+HORARIOS = ["12:00", "19:00"]
 DIAS = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
 
 # Carrosséis do lote de 29/09 (o 01, da OpenAI, fica de fora porque virou reel)
@@ -76,28 +77,28 @@ while any(fila.values()):
     c = min((c for c in fila if fila[c]), key=lambda c: pos[c])
     perenes.append(fila[c].pop(0)); pos[c] += passo[c]
 ordem = ORDEM_NOTICIAS + perenes
-assert len(set(ordem)) == len(ordem) == 61, len(ordem)
+assert len(set(ordem)) == len(ordem) == 111, len(ordem)
 
 if OUT.exists():
     shutil.rmtree(OUT)
 (OUT / "posts").mkdir(parents=True)
 linhas, js = [], []
 for n, slug in enumerate(ordem, 1):
-    p, imgs, ig, tt = item(slug)
-    data = INICIO + dt.timedelta(days=n - 1)
-    nome = f"{n:02d}_{data.isoformat()}_{slug.split('-', 1)[1] if slug in ANTIGOS else slug}"
+    p, imgs, ig, _ = item(slug)
+    data = INICIO + dt.timedelta(days=(n - 1) // 2)
+    hora = HORARIOS[(n - 1) % 2]
+    nome = f"{n:03d}_{data.isoformat()}_{hora[:2]}h_{slug.split('-', 1)[1] if slug in ANTIGOS else slug}"
     d = OUT / "posts" / nome
     d.mkdir()
     for i, im in enumerate(imgs, 1):
-        Image.open(im).convert("RGB").save(d / f"{i:02d}.jpg", quality=93, optimize=True) if im.suffix == ".png" else shutil.copy(im, d / f"{i:02d}.jpg")
+        Image.open(im).convert("RGB").save(d / f"{i:02d}.jpg", quality=85, optimize=True, progressive=True)
     (d / "legenda-instagram.txt").write_text(ig + "\n")
-    (d / "legenda-tiktok.txt").write_text(tt + "\n")
-    row = {"n": n, "data": data.isoformat(), "dia_semana": DIAS[data.weekday()], "hora_brasilia": HORA, "pasta": f"posts/{nome}",
+    row = {"n": n, "data": data.isoformat(), "dia_semana": DIAS[data.weekday()], "hora_brasilia": hora, "pasta": f"posts/{nome}",
            "tipo": {"news": "notícia", "site": "sites e negócios", "ia": "IA na prática", "tech": "tecnologia e segurança"}[p["cat"]],
            "titulo": p["gancho"], "imagens": len(imgs), "fonte": p.get("fonte", "")}
     linhas.append(row)
-    js.append({**row, "legenda_instagram": ig, "legenda_tiktok": tt})
-    (d / "info.txt").write_text(f"Post {n} de {len(ordem)}\nData: {data.strftime('%d/%m/%Y')} ({DIAS[data.weekday()]}), {HORA} (Brasília)\n"
+    js.append({**row, "legenda_instagram": ig})
+    (d / "info.txt").write_text(f"Post {n} de {len(ordem)}\nData: {data.strftime('%d/%m/%Y')} ({DIAS[data.weekday()]}), {hora} (Brasília)\n"
                                 f"Tipo: {row['tipo']}\nImagens: {len(imgs)} (publicar na ordem 01, 02, 03...)\n")
 
 with open(OUT / "calendario.csv", "w", newline="", encoding="utf-8-sig") as f:
@@ -105,7 +106,7 @@ with open(OUT / "calendario.csv", "w", newline="", encoding="utf-8-sig") as f:
     w.writeheader(); w.writerows(linhas)
 (OUT / "calendario.json").write_text(json.dumps(js, ensure_ascii=False, indent=1))
 shutil.copy(AQUI / "LEIA-ME.md", OUT / "LEIA-ME.md")
-fim = INICIO + dt.timedelta(days=len(ordem) - 1)
+fim = INICIO + dt.timedelta(days=(len(ordem) - 1) // 2)
 
 zp = AQUI / "pacote-posts-roger-machado.zip"
 with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:

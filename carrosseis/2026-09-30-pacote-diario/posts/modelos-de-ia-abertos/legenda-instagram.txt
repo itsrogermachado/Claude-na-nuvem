@@ -1,0 +1,7 @@
+IA aberta e IA fechada: qual a diferença?
+
+Nos modelos abertos, os pesos são publicados e podem rodar em servidores próprios. Nos fechados, o acesso é pelo app ou pela API da empresa.
+
+Salve para consultar depois e siga @machadomtds para acompanhar tecnologia e IA sem ruído.
+
+#inteligenciaartificial #opensource #tecnologia #llm #ia

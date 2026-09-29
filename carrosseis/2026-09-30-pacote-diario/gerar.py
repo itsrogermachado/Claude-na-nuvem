@@ -6,6 +6,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "_base"))
 from modelo import page, direct, seguir  # noqa: E402
 from conteudo import POSTS  # noqa: E402
+import conteudo2  # noqa: E402,F401  (adiciona o lote 2 à lista POSTS)
 
 AQUI = pathlib.Path(__file__).parent
 

@@ -348,5 +348,348 @@
   "titulo": "Golpistas já usam IA para imitar vozes. Veja como se proteger.",
   "fonte": "",
   "slides": 6
+ },
+ {
+  "slug": "5-paginas-que-todo-site-precisa",
+  "cat": "site",
+  "titulo": "As 5 páginas que todo site de empresa precisa ter.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-hospedagem-de-site",
+  "cat": "site",
+  "titulo": "Domínio é o endereço. Hospedagem é o terreno. Entenda a diferença.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "cadeado-https-no-site",
+  "cat": "site",
+  "titulo": "Aquele cadeado na barra do navegador importa mais do que parece.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "site-de-uma-pagina-ou-varias",
+  "cat": "site",
+  "titulo": "Site de uma página só ou com várias páginas? Depende do seu negócio.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "titulo-do-site-que-prende",
+  "cat": "site",
+  "titulo": "O título do seu site tem 3 segundos para dizer o que você faz.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "fotos-reais-no-site",
+  "cat": "site",
+  "titulo": "Foto de banco de imagem ou foto real? Para o seu site, a resposta faz diferença.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "perfil-da-empresa-no-google",
+  "cat": "site",
+  "titulo": "Perfil da Empresa no Google: o cadastro gratuito que coloca você no Maps.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "como-responder-avaliacoes-no-google",
+  "cat": "site",
+  "titulo": "Como responder avaliações no Google, inclusive as negativas.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "formulario-de-contato-que-funciona",
+  "cat": "site",
+  "titulo": "Formulário de contato com 10 campos? Menos é mais.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "perguntas-frequentes-no-site",
+  "cat": "site",
+  "titulo": "A página de perguntas frequentes responde o cliente antes de ele perguntar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "como-montar-um-portfolio",
+  "cat": "site",
+  "titulo": "Como montar um portfólio que mostra o seu trabalho do jeito certo.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "site-para-clinicas-e-consultorios",
+  "cat": "site",
+  "titulo": "Clínicas e consultórios: o que o site precisa ter para o paciente agendar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "site-para-restaurantes",
+  "cat": "site",
+  "titulo": "Restaurante precisa de site? Veja o que ele resolve.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "site-para-negocio-local",
+  "cat": "site",
+  "titulo": "Eletricista, oficina, salão: negócio local também precisa de site.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "link-na-bio-leve-para-o-site",
+  "cat": "site",
+  "titulo": "O link na bio é o espaço mais valioso do seu Instagram. Para onde ele leva?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "seo-local-cidade-e-servico",
+  "cat": "site",
+  "titulo": "Quer aparecer no Google na sua cidade? Fale o nome da cidade no site.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "blog-na-empresa-vale-a-pena",
+  "cat": "site",
+  "titulo": "Blog no site da empresa ainda vale a pena?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-preparar-antes-de-pedir-um-site",
+  "cat": "site",
+  "titulo": "Vai pedir um site? Separe estes materiais antes.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "identidade-visual-no-site",
+  "cat": "site",
+  "titulo": "Seu site, seu Instagram e seu cartão parecem da mesma empresa?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "site-institucional-ou-loja-virtual",
+  "cat": "site",
+  "titulo": "Site institucional ou loja virtual? Entenda qual o seu negócio precisa.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "prompt-com-papel-definido",
+  "cat": "ia",
+  "titulo": "Comece o prompt dizendo quem a IA deve ser. A resposta muda.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "prompt-com-exemplos",
+  "cat": "ia",
+  "titulo": "Quer uma resposta no seu estilo? Mostre um exemplo para a IA.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-responder-avaliacoes",
+  "cat": "ia",
+  "titulo": "Use a IA para rascunhar respostas às avaliações dos clientes.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-roteiro-de-reels",
+  "cat": "ia",
+  "titulo": "Travou no roteiro do reels? Use a IA com esta estrutura.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-pesquisar-concorrentes",
+  "cat": "ia",
+  "titulo": "Como usar a IA para analisar a concorrência, sem cair em informação inventada.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-emails-profissionais",
+  "cat": "ia",
+  "titulo": "E-mail difícil de escrever? A IA faz o primeiro rascunho em segundos.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-organizar-a-semana",
+  "cat": "ia",
+  "titulo": "Semana caótica? Peça para a IA organizar suas tarefas por prioridade.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-aprender-um-assunto-novo",
+  "cat": "ia",
+  "titulo": "Use a IA como professora particular para aprender um assunto novo.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-traduzir-e-adaptar",
+  "cat": "ia",
+  "titulo": "Traduzir não é só trocar palavras. Peça para a IA adaptar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "imagens-com-ia-cuidados",
+  "cat": "ia",
+  "titulo": "Vai criar imagens com IA para o seu negócio? Cuidado com estes 4 pontos.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-que-le-imagens",
+  "cat": "ia",
+  "titulo": "Tire uma foto e pergunte para a IA. Ela lê imagens também.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "de-contexto-para-a-ia",
+  "cat": "ia",
+  "titulo": "A IA não conhece o seu negócio. Dê contexto antes de pedir.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "roteiro-de-atendimento-para-ia",
+  "cat": "ia",
+  "titulo": "Antes de colocar IA no atendimento, escreva o roteiro dela.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "5-erros-ao-usar-ia",
+  "cat": "ia",
+  "titulo": "5 erros comuns de quem está começando a usar IA.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "ia-para-analisar-feedback-de-clientes",
+  "cat": "ia",
+  "titulo": "Use a IA para descobrir o que os seus clientes realmente estão dizendo.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "checklist-para-revisar-resposta-da-ia",
+  "cat": "ia",
+  "titulo": "Checklist de 5 perguntas para revisar qualquer resposta da IA.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "habilidades-para-trabalhar-com-ia",
+  "cat": "ia",
+  "titulo": "Quais habilidades valem mais agora que a IA faz parte do trabalho?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-llm",
+  "cat": "tech",
+  "titulo": "LLM: a sigla por trás do ChatGPT, do Claude e do Gemini.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "modelos-de-ia-abertos",
+  "cat": "tech",
+  "titulo": "IA aberta e IA fechada: qual a diferença?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-data-center",
+  "cat": "tech",
+  "titulo": "Todo mundo fala de data center por causa da IA. Mas o que é isso?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "criptografia-de-ponta-a-ponta",
+  "cat": "tech",
+  "titulo": "Criptografia de ponta a ponta: o que ela protege no seu WhatsApp.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-vpn",
+  "cat": "tech",
+  "titulo": "VPN: para que serve e quando vale a pena usar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-sao-cookies",
+  "cat": "tech",
+  "titulo": "Aceitar cookies: o que você está autorizando?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-dns",
+  "cat": "tech",
+  "titulo": "DNS: a agenda de contatos da internet.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "o-que-e-saas",
+  "cat": "tech",
+  "titulo": "SaaS: por que quase todo software agora é assinatura?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "golpe-do-boleto-falso",
+  "cat": "tech",
+  "titulo": "Golpe do boleto falso: como conferir antes de pagar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "whatsapp-clonado-como-evitar",
+  "cat": "tech",
+  "titulo": "WhatsApp clonado: o código de 6 dígitos que você nunca deve passar.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "permissoes-de-aplicativos",
+  "cat": "tech",
+  "titulo": "Aquele app de lanterna precisa acessar os seus contatos?",
+  "fonte": "",
+  "slides": 6
+ },
+ {
+  "slug": "como-criar-uma-senha-forte",
+  "cat": "tech",
+  "titulo": "Senha forte não precisa ser impossível de lembrar. Use frases.",
+  "fonte": "",
+  "slides": 6
  }
 ]
