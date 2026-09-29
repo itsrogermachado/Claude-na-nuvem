@@ -609,6 +609,13 @@
   "slides": 6
  },
  {
+  "slug": "ia-para-descricao-de-produtos",
+  "cat": "ia",
+  "titulo": "Descrição de produto que vende: use a IA com as informações certas.",
+  "fonte": "",
+  "slides": 6
+ },
+ {
   "slug": "o-que-e-llm",
   "cat": "tech",
   "titulo": "LLM: a sigla por trás do ChatGPT, do Claude e do Gemini.",
