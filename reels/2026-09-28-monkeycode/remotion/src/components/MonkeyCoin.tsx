@@ -82,7 +82,7 @@ export const MonkeyReveal: React.FC = () => {
 	const frame = useCurrentFrame();
 	const t = frame / FPS;
 	const t0 = T.reveal - 0.02;
-	const badgeEnd = T.search - 0.08;
+	const badgeEnd = T.search - 0.36; // gone before the search bar drops in
 	const active = t >= t0 && t <= badgeEnd + 0.4;
 	const tex = useCoinTexture(active);
 	if (!active) return null;

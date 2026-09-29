@@ -1,13 +1,11 @@
-import {useThree} from '@react-three/fiber';
 import {ThreeCanvas} from '@remotion/three';
-import React, {useEffect, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
 import * as THREE from 'three';
-import {RoomEnvironment} from 'three/examples/jsm/environments/RoomEnvironment.js';
 import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader.js';
 import {T, camera, toScreen} from '../camera';
 import {CLAUDE_COLOR, CLAUDE_PATH} from '../claudePath';
-import {C, clamp01, easeOut, springAt} from '../theme';
+import {clamp01, easeOut, springAt} from '../theme';
 import {FPS, palm} from '../timeline';
 import {CHIP_ICON} from './Hook';
 
@@ -36,25 +34,11 @@ const useClaudeGeometry = () =>
 		return geo;
 	}, []);
 
-const Env: React.FC = () => {
-	const {gl, scene} = useThree();
-	// built synchronously so the very first rendered frame already has reflections
-	const env = useMemo(() => {
-		const pmrem = new THREE.PMREMGenerator(gl);
-		const tex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-		pmrem.dispose();
-		return tex;
-	}, [gl]);
-	scene.environment = env;
-	useEffect(() => () => env.dispose(), [env]);
-	return null;
-};
-
 const Logo: React.FC<{rotX: number; rotY: number; rotZ: number}> = ({rotX, rotY, rotZ}) => {
 	const geo = useClaudeGeometry();
 	return (
 		<mesh geometry={geo} rotation={[rotX, rotY, rotZ]}>
-			<meshPhysicalMaterial color={CLAUDE_COLOR} roughness={0.26} metalness={0.12} clearcoat={1} clearcoatRoughness={0.08} envMapIntensity={1.35} />
+			<meshPhysicalMaterial color={CLAUDE_COLOR} roughness={0.38} metalness={0} clearcoat={0.6} clearcoatRoughness={0.2} />
 		</mesh>
 	);
 };
@@ -147,13 +131,11 @@ export const ClaudeLogo3D: React.FC = () => {
 			/>
 			<Sparkles t={t} t0={T.logoIn + 0.08} r={size * 0.7} />
 			<div style={{position: 'absolute', left: -CANVAS / 2, top: -CANVAS / 2, width: CANVAS, height: CANVAS, transform: `scale(${k})`}}>
-				<ThreeCanvas width={CANVAS} height={CANVAS} camera={{fov: 30, position: [0, 0, 5.2]}} gl={{antialias: true, alpha: true, preserveDrawingBuffer: true}}>
-					<Env />
-					<ambientLight intensity={0.22} />
-					<directionalLight position={[-3, 4, 5]} intensity={2.6} />
-					<directionalLight position={[4, -2, 3]} intensity={0.55} color={'#FFD2B8'} />
-					<directionalLight position={[3, 2, -4]} intensity={2.2} color={'#FFFFFF'} />
-					<pointLight position={[0, 0, -3]} intensity={6} color={C.claude} />
+				<ThreeCanvas flat width={CANVAS} height={CANVAS} camera={{fov: 30, position: [0, 0, 5.2]}} gl={{antialias: true, alpha: true, preserveDrawingBuffer: true}}>
+					<hemisphereLight args={['#FFF4EC', '#4A2216', 0.95]} />
+					<directionalLight position={[-3, 4, 5]} intensity={2.3} />
+					<directionalLight position={[4, -2, 3]} intensity={0.35} color={'#FFD2B8'} />
+					<directionalLight position={[3, 2, -4]} intensity={1.6} color={'#FFFFFF'} />
 					<Logo rotX={rotX} rotY={rotY} rotZ={rotZ} />
 				</ThreeCanvas>
 			</div>
