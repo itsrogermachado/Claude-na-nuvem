@@ -70,7 +70,11 @@ const Lbl: React.FC<{children: React.ReactNode; color?: string}> = ({children, c
 
 // ---------------------------------------------------------------- cenas
 
+const S = SCENES;
 const tDesistiu = wordAt('desistiu');
+const tQuinze = wordAt('15');
+const tDone = wordAt('minutos') + 0.35;
+const tClick = wordAt('tecnologia') - 0.1;
 
 const Hook: React.FC = () => {
 	const frame = useCurrentFrame();
@@ -112,8 +116,8 @@ const Hook: React.FC = () => {
 const Limites: React.FC = () => {
 	const frame = useCurrentFrame();
 	const t = frame / FPS;
-	const tri = prog(t, 5.6, 0.9, easeInOut);
-	const ex = springAt(frame, 6.3);
+	const tri = prog(t, S.limites[0] + 0.3, 0.9, easeInOut);
+	const ex = springAt(frame, S.limites[0] + 1.0);
 	const eng = springAt(frame, wordAt('enganou') - 0.1, {damping: 10});
 	const pas = springAt(frame, wordAt('passou') - 0.1, {damping: 12});
 	const tE = t - wordAt('enganou');
@@ -121,7 +125,7 @@ const Limites: React.FC = () => {
 	const per = 3 * 520;
 	return (
 		<Scene range={SCENES.limites}>
-			<Chip t0={5.45} top={360}>NOS TESTES INTERNOS</Chip>
+			<Chip t0={S.limites[0] + 0.15} top={360}>NOS TESTES INTERNOS</Chip>
 			<svg width={320} height={290} viewBox="0 0 320 290" style={{position: 'absolute', top: 490, left: 380}}>
 				<path d="M160 20 L300 270 L20 270 Z" fill="none" stroke={C.coral} strokeWidth={20} strokeLinejoin="round" strokeDasharray={per} strokeDashoffset={per * (1 - tri)} />
 				<g transform={`translate(160 190) scale(${ex}) translate(-160 -190)`}>
@@ -129,7 +133,7 @@ const Limites: React.FC = () => {
 					<circle cx={160} cy={232} r={15} fill={C.coral} />
 				</g>
 			</svg>
-			<div style={{position: 'absolute', top: 850, left: 0, right: 0, textAlign: 'center', fontFamily: SANS, fontWeight: 900, fontSize: 168, color: C.ink, letterSpacing: -4, transform: `scale(${eng}) translateX(${glitch}px)`, opacity: Math.min(1, eng * 2), textShadow: glitch ? `${-glitch}px 0 ${C.blue}, ${glitch}px 0 ${C.coral}` : 'none'}}>
+			<div style={{position: 'absolute', top: 850, left: 0, right: 0, textAlign: 'center', fontFamily: SANS, fontWeight: 900, fontSize: 148, color: C.ink, letterSpacing: -4, transform: `scale(${eng}) translateX(${glitch}px)`, opacity: Math.min(1, eng * 2), textShadow: glitch ? `${-glitch}px 0 ${C.blue}, ${glitch}px 0 ${C.coral}` : 'none'}}>
 				ENGANOU
 			</div>
 			<div style={{position: 'absolute', top: 1060, left: 0, right: 0, textAlign: 'center', fontFamily: SANS, fontWeight: 900, fontSize: 84, color: C.coral, letterSpacing: -1, transform: `translateY(${(1 - pas) * 60}px)`, opacity: Math.min(1, pas * 2)}}>
@@ -140,14 +144,14 @@ const Limites: React.FC = () => {
 };
 
 const FALHAS = [
-	{t: wordAt('seguia', 9.5) - 0.15, txt: 'Seguia com tarefas sem pedir permissão'},
-	{t: wordAt('não', 11.5) - 0.15, txt: 'Não contava o que tinha feito'},
-	{t: 13.5, txt: 'Usava ferramentas externas mesmo quando era inseguro'},
+	{t: wordAt('seguia') - 0.15, txt: 'Seguia com tarefas sem pedir permissão'},
+	{t: wordAt('não', SCENES.falhas[0]) - 0.15, txt: 'Não contava o que tinha feito'},
+	{t: wordAt('tinha', SCENES.falhas[0]) - 0.1, txt: 'Usava ferramentas externas mesmo quando era inseguro'},
 ];
 
 const Falhas: React.FC = () => {
 	const frame = useCurrentFrame();
-	const card = springAt(frame, 9.8, {damping: 15});
+	const card = springAt(frame, S.falhas[0] + 0.1, {damping: 15});
 	return (
 		<Scene range={SCENES.falhas}>
 			<div style={{position: 'absolute', top: 380, left: 90, width: 900, height: 900, borderRadius: 44, background: '#000', padding: '64px 56px', transform: `translateY(${(1 - card) * 140}px)`, opacity: Math.min(1, card * 1.4)}}>
@@ -218,13 +222,13 @@ const Pausa: React.FC = () => {
 const Contador: React.FC = () => {
 	const frame = useCurrentFrame();
 	const t = frame / FPS;
-	const c = prog(t, 23.35, 1.3, easeOut);
+	const c = prog(t, S.contador[0] + 0.25, tQuinze - S.contador[0] - 0.15, easeOut);
 	const n = Math.round(c * 15);
-	const done = springAt(frame, 24.75, {damping: 11});
-	const ring = springAt(frame, 23.15, {damping: 16});
+	const done = springAt(frame, tDone, {damping: 11});
+	const ring = springAt(frame, S.contador[0] + 0.05, {damping: 16});
 	return (
 		<Scene range={SCENES.contador}>
-			<Chip t0={23.2} top={360}>DETECTADO EM</Chip>
+			<Chip t0={S.contador[0] + 0.1} top={360}>DETECTADO EM</Chip>
 			<div style={{position: 'absolute', top: 480, left: 190, width: 700, height: 700, transform: `scale(${ring})`}}>
 				{[1, 0.72, 0.44].map((k, i) => (
 					<div key={i} style={{position: 'absolute', inset: `${(1 - k) * 350}px`, borderRadius: '50%', border: `4px solid ${C.blue}`, opacity: 0.25 + i * 0.1}} />
@@ -263,15 +267,15 @@ const Coluna: React.FC<{t0: number; titulo: string; itens: string[]; icon: strin
 
 const Licao: React.FC = () => {
 	const frame = useCurrentFrame();
-	const sub = springAt(frame, 26.1, {damping: 15});
+	const sub = springAt(frame, S.licao[0] + 0.3, {damping: 15});
 	return (
 		<Scene range={SCENES.licao}>
-			<Chip t0={25.95} top={360} bg="#FDECE7" color={C.coral}>A LIÇÃO</Chip>
+			<Chip t0={S.licao[0] + 0.15} top={360} bg="#FDECE7" color={C.coral}>A LIÇÃO</Chip>
 			<div style={{position: 'absolute', top: 470, left: 0, right: 0, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 56, color: C.ink, lineHeight: 1.2, opacity: sub, transform: `translateY(${(1 - sub) * 30}px)`}}>
 				Defina os limites da sua IA
 			</div>
 			<Coluna t0={wordAt('defina') - 0.2} titulo="Pode sozinha" itens={['Pesquisar', 'Resumir', 'Rascunhar']} icon="✓" cor={C.blue} left={90} />
-			<Coluna t0={wordAt('precisa') - 0.4} titulo="Só com aprovação" itens={['Pagar', 'Enviar', 'Apagar']} icon="!" cor={C.coral} black left={560} />
+			<Coluna t0={wordAt('sozinha') + 0.45} titulo="Só com aprovação" itens={['Pagar', 'Enviar', 'Apagar']} icon="!" cor={C.coral} black left={560} />
 		</Scene>
 	);
 };
@@ -279,10 +283,9 @@ const Licao: React.FC = () => {
 const Cta: React.FC = () => {
 	const frame = useCurrentFrame();
 	const t = frame / FPS;
-	const a = springAt(frame, 34.0, {damping: 13});
-	const nm = springAt(frame, 34.25, {damping: 15});
-	const btn = springAt(frame, 34.5, {damping: 13});
-	const tClick = 35.7;
+	const a = springAt(frame, S.cta[0] + 0.1, {damping: 13});
+	const nm = springAt(frame, S.cta[0] + 0.35, {damping: 15});
+	const btn = springAt(frame, S.cta[0] + 0.6, {damping: 13});
 	const press = t > tClick && t < tClick + 0.18 ? 0.9 : 1;
 	const done = t >= tClick + 0.1;
 	return (
@@ -299,7 +302,7 @@ const Cta: React.FC = () => {
 				<div style={{marginTop: 64, width: 440, height: 120, borderRadius: 60, background: done ? '#EFF3F4' : C.blue, color: done ? C.ink : '#fff', border: done ? '3px solid #CFD9DE' : 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 50, transform: `scale(${btn * press})`, boxShadow: done ? 'none' : '0 20px 50px rgba(79,93,255,.35)'}}>
 					{done ? 'Seguindo ✓' : 'Seguir'}
 				</div>
-				<div style={{fontFamily: SANS, fontWeight: 700, fontSize: 44, color: C.ink, marginTop: 56, opacity: prog(t, 35.9, 0.5)}}>
+				<div style={{fontFamily: SANS, fontWeight: 700, fontSize: 44, color: C.ink, marginTop: 56, opacity: prog(t, tClick + 0.2, 0.5)}}>
 					Tecnologia <span style={{color: C.coral}}>sem ruído.</span>
 				</div>
 			</div>
@@ -316,7 +319,8 @@ const GROUPS: Group[] = (() => {
 	WORDS.forEach((w, i) => {
 		cur.push(w);
 		const next = WORDS[i + 1];
-		const brk = /[,.:]$/.test(w.w) || cur.length >= 3 || !next || next.t0 - w.t1 > 0.2;
+		const chars = cur.reduce((a, x) => a + x.w.length + 1, 0);
+		const brk = /[,.:]$/.test(w.w) || cur.length >= 3 || !next || next.t0 - w.t1 > 0.2 || chars + next.w.length > 22;
 		if (brk) {
 			out.push({words: cur, t0: cur[0].t0, t1: cur[cur.length - 1].t1});
 			cur = [];
@@ -356,7 +360,7 @@ const SFX: {t: number; f: string; v: number}[] = [
 	{t: 0.35, f: 'pop', v: 0.5},
 	{t: tDesistiu - 0.05, f: 'hit_big', v: 0.7},
 	{t: SCENES.limites[0], f: 'whoosh_short', v: 0.4},
-	{t: 6.3, f: 'pop_hi', v: 0.4},
+	{t: S.limites[0] + 1.0, f: 'pop_hi', v: 0.4},
 	{t: wordAt('enganou') - 0.1, f: 'hit', v: 0.6},
 	{t: SCENES.falhas[0], f: 'whoosh_short', v: 0.4},
 	...FALHAS.map((f) => ({t: f.t, f: 'pop_hi', v: 0.5})),
@@ -365,14 +369,14 @@ const SFX: {t: number; f: string; v: number}[] = [
 	{t: wordAt('driblou') - 0.1, f: 'riser', v: 0.35},
 	{t: wordAt('driblou') + 0.55, f: 'click', v: 0.6},
 	{t: SCENES.contador[0], f: 'whoosh_short', v: 0.4},
-	...Array.from({length: 15}, (_, i) => ({t: 23.35 + i * 0.085, f: 'tick', v: 0.3})),
-	{t: 24.75, f: 'shimmer', v: 0.45},
+	...Array.from({length: 15}, (_, i) => ({t: S.contador[0] + 0.25 + ((tQuinze - S.contador[0] - 0.15) * i) / 15, f: 'tick', v: 0.3})),
+	{t: tDone, f: 'shimmer', v: 0.45},
 	{t: SCENES.licao[0], f: 'whoosh_short', v: 0.4},
 	{t: wordAt('defina') - 0.2, f: 'pop', v: 0.45},
-	{t: wordAt('precisa') - 0.4, f: 'pop', v: 0.45},
+	{t: wordAt('sozinha') + 0.45, f: 'pop', v: 0.45},
 	{t: SCENES.cta[0], f: 'whoosh_up', v: 0.45},
-	{t: 35.7, f: 'click', v: 0.7},
-	{t: 35.85, f: 'shimmer', v: 0.4},
+	{t: tClick, f: 'click', v: 0.7},
+	{t: tClick + 0.15, f: 'shimmer', v: 0.4},
 ];
 
 export const Reel: React.FC = () => (
@@ -389,7 +393,7 @@ export const Reel: React.FC = () => (
 		<Captions />
 		{SFX.map((s, i) => (
 			<Sequence key={i} from={Math.max(0, Math.round(s.t * FPS))}>
-				<Audio src={staticFile(`sfx/${s.f}.wav`)} volume={s.v} />
+				<Audio src={staticFile(`sfx/${s.f}.wav`)} volume={s.v * 0.55} />
 			</Sequence>
 		))}
 		{NARRATION && <Audio src={staticFile(NARRATION)} />}

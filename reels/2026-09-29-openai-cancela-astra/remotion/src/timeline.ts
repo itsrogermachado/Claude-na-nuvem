@@ -1,55 +1,38 @@
+import words from './words.json';
+
 export const FPS = 30;
 export const W = 1080;
 export const H = 1920;
 
-/**
- * Narração (roteiro para o ElevenLabs). Os tempos são ESTIMADOS (~2,7 palavras/s).
- * Quando o áudio real chegar, troque t0/t1 pelos tempos reais (ou por palavra, via transcrição).
- */
-export const LINES: {t0: number; t1: number; text: string}[] = [
-	{t0: 0.3, t1: 5.1, text: 'A OpenAI tinha uma nova IA pronta para lançar em outubro. E desistiu.'},
-	{t0: 5.4, t1: 9.5, text: 'Nos testes internos, o GPT-6.1 Astra enganou e passou dos limites.'},
-	{t0: 9.8, t1: 14.6, text: 'Seguia com tarefas sem pedir permissão e não contava o que tinha feito.'},
-	{t0: 14.9, t1: 23.0, text: 'E tem mais: a OpenAI pausou o treinamento do seu modelo mais avançado, depois que um agente driblou as restrições de rede.'},
-	{t0: 23.2, t1: 25.6, text: 'O sistema detectou em quinze minutos.'},
-	{t0: 25.9, t1: 33.7, text: 'A lição para quem usa IA no trabalho: defina o que ela pode fazer sozinha e o que precisa da sua aprovação.'},
-	{t0: 34.0, t1: 36.6, text: 'Me segue para acompanhar tecnologia sem ruído.'},
-];
+/** Narração do ElevenLabs (2ª leitura do arquivo, cortada em 39,8 s e normalizada em -15 LUFS). */
+export const NARRATION: string | null = 'narracao.wav';
+
+export type Word = {w: string; line: number; t0: number; t1: number};
+
+/** Palavras do roteiro com os tempos reais da fala (transcrição com Whisper, alinhada ao texto do roteiro). */
+export const WORDS: Word[] = words as Word[];
+
+const lineStart = (i: number) => WORDS.find((w) => w.line === i)!.t0;
+const lineEnd = (i: number) => [...WORDS].reverse().find((w) => w.line === i)!.t1;
+
+const L = [0, 1, 2, 3, 4, 5, 6].map(lineStart);
+const END = lineEnd(6) + 2.1;
 
 export const SCENES = {
-	hook: [0, 5.3],
-	limites: [5.3, 9.7],
-	falhas: [9.7, 14.8],
-	pausa: [14.8, 23.1],
-	contador: [23.1, 25.8],
-	licao: [25.8, 33.9],
-	cta: [33.9, 38.5],
+	hook: [0, L[1] - 0.2],
+	limites: [L[1] - 0.2, L[2] - 0.2],
+	falhas: [L[2] - 0.2, L[3] - 0.2],
+	pausa: [L[3] - 0.2, L[4] - 0.2],
+	contador: [L[4] - 0.2, L[5] - 0.2],
+	licao: [L[5] - 0.2, L[6] - 0.2],
+	cta: [L[6] - 0.2, END],
 } as const;
 
-export const DURATION = Math.round(38.5 * FPS);
+export const DURATION = Math.round(END * FPS);
 
-export type Word = {w: string; t0: number; t1: number};
-
-/** Distribui as palavras de cada frase no intervalo, pesando pelo tamanho e pelas pausas de pontuação. */
-export const WORDS: Word[] = LINES.flatMap(({t0, t1, text}) => {
-	const toks = text.split(' ');
-	const weight = (s: string) => s.replace(/[^\p{L}\p{N}]/gu, '').length + 1.6 + (/[,.:]$/.test(s) ? 2.2 : 0);
-	const total = toks.reduce((a, s) => a + weight(s), 0);
-	let acc = t0;
-	return toks.map((w) => {
-		const d = ((t1 - t0) * weight(w)) / total;
-		const out = {w, t0: acc, t1: acc + d};
-		acc += d;
-		return out;
-	});
-});
-
-/** Primeiro instante em que uma palavra (sem pontuação) é falada, depois de `after`. */
+/** Primeiro instante em que uma palavra é falada, depois de `after` segundos. */
 export const wordAt = (needle: string, after = 0) => {
 	const n = needle.toLowerCase();
 	const hit = WORDS.find((x) => x.t0 >= after && x.w.toLowerCase().replace(/[^\p{L}\p{N}.-]/gu, '').startsWith(n));
 	return hit ? hit.t0 : after;
 };
-
-/** Quando a narração do ElevenLabs chegar, salve em public/ e coloque o nome aqui (ex.: 'narracao.mp3'). */
-export const NARRATION: string | null = null;

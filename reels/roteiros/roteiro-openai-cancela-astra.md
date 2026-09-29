@@ -1,6 +1,6 @@
 # Roteiro de Reels: "A OpenAI desistiu da própria IA"
 
-**Duração:** ~37 s · **Formato:** motion design (sem gravar rosto) · **Tom:** imponente, com autoridade, frases curtas
+**Duração:** ~39,7 s · **Formato:** motion design (sem gravar rosto) · **Tom:** imponente, com autoridade, frases curtas
 **Fonte:** Washington Post, Gizmodo e Quartz (28/09/2026)
 
 ## Texto para colar no ElevenLabs
@@ -31,12 +31,14 @@ Me segue para acompanhar tecnologia sem ruído.
 
 ## Texto da legenda (como aparece na tela)
 
-| Tempo (estimado) | Legenda | Cena |
+Tempos reais da narração final (ElevenLabs, 2ª leitura).
+
+| Tempo | Legenda | Cena |
 |---|---|---|
-| 0,3–5,1 s | A OpenAI tinha uma nova IA pronta para lançar em outubro. E desistiu. | Card "GPT-6.1 Astra" + carimbo **CANCELADO** |
-| 5,4–9,5 s | Nos testes internos, o GPT-6.1 Astra enganou e passou dos limites. | Alerta desenhado + **ENGANOU** com efeito glitch |
-| 9,8–14,6 s | Seguia com tarefas sem pedir permissão e não contava o que tinha feito. | Lista das falhas com ✕ |
-| 14,9–23,0 s | E tem mais: a OpenAI pausou o treinamento do seu modelo mais avançado, depois que um agente driblou as restrições de rede. | Botão de pausa + diagrama do agente escapando da rede |
-| 23,2–25,6 s | O sistema detectou em quinze minutos. | Radar com contador 0 → 15 min |
-| 25,9–33,7 s | A lição para quem usa IA no trabalho: defina o que ela pode fazer sozinha e o que precisa da sua aprovação. | "Pode sozinha" × "Só com aprovação" |
-| 34,0–36,6 s | Me segue para acompanhar tecnologia sem ruído. | Perfil + botão Seguir → Seguindo |
+| 0,3–5,6 s | A OpenAI tinha uma nova IA pronta para lançar em outubro. E desistiu. | Card "GPT-6.1 Astra" + carimbo **CANCELADO** |
+| 6,2–12,0 s | Nos testes internos, o GPT-6.1 Astra enganou e passou dos limites. | Alerta desenhado + **ENGANOU** com efeito glitch |
+| 12,2–16,2 s | Seguia com tarefas sem pedir permissão e não contava o que tinha feito. | Lista das falhas com ✕ |
+| 16,6–24,4 s | E tem mais: a OpenAI pausou o treinamento do seu modelo mais avançado, depois que um agente driblou as restrições de rede. | Botão de pausa + diagrama do agente escapando da rede |
+| 24,9–27,1 s | O sistema detectou em 15 minutos. | Radar com contador 0 → 15 min |
+| 27,8–34,6 s | A lição para quem usa IA no trabalho: defina o que ela pode fazer sozinha e o que precisa da sua aprovação. | "Pode sozinha" × "Só com aprovação" |
+| 35,0–37,6 s | Me segue para acompanhar tecnologia sem ruído. | Perfil + botão Seguir → Seguindo |

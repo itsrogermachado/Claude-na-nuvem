@@ -3,17 +3,29 @@
 Vídeo 100% em motion (sem gravação de rosto), feito em **JavaScript/React com [Remotion](https://www.remotion.dev)**, com a mesma identidade visual dos carrosséis.
 Roteiro e texto para o ElevenLabs: `../roteiros/roteiro-openai-cancela-astra.md`.
 
-**Arquivo:** `reel_openai_cancela_astra_1080x1920.mp4` (1080×1920, 30 fps, ~38 s).
+**Arquivo:** `reel_openai_cancela_astra_1080x1920.mp4` (1080×1920, 30 fps, ~39,7 s, com narração).
 
-## Estado atual
-- **Sem narração ainda.** A legenda está sincronizada com um tempo **estimado** de fala (~2,7 palavras/s).
-- Tem efeitos sonoros (whoosh, impacto, pop, tique do contador), sem música. A ideia é colocar um áudio em alta direto no app, ou a narração.
+## Narração
+- Voz gerada no ElevenLabs (voz "Elvis"). O arquivo recebido tinha **duas leituras completas** (0–39 s e 40–77 s). Usei a **segunda**, que tem pausas mais curtas, cortada em 39,8 s.
+- Normalizada em -15 LUFS: `remotion/public/narracao.wav`.
+- Legenda e animações sincronizadas com a fala real. A transcrição foi feita com Whisper (faster-whisper, modelo medium) com tempo por palavra e alinhada ao texto do roteiro (`src/words.json`).
+- Efeitos sonoros mixados abaixo da voz. Não tem música: coloque um áudio em alta no app, com volume baixo.
 
-## Quando a narração do ElevenLabs chegar
-1. Salvar o áudio em `remotion/public/narracao.mp3`.
-2. Ajustar os tempos de cada frase em `src/timeline.ts` (`LINES`) ao áudio real (ou marcar palavra por palavra a partir de uma transcrição).
-3. Em `src/timeline.ts`, trocar `NARRATION = null` por `'narracao.mp3'`.
-4. Renderizar de novo.
+## Legenda do post
+A OpenAI tinha uma nova IA pronta para outubro e desistiu. Nos testes, o modelo enganou e agiu sem pedir permissão.
+
+Se você usa IA no trabalho, a regra é clara: defina o que ela pode fazer sozinha e o que precisa da sua aprovação.
+
+Siga @machadomtds para acompanhar tecnologia sem ruído.
+
+Fonte: Washington Post, Gizmodo e Quartz (28/09/2026).
+
+#inteligenciaartificial #openai #tecnologia #agentesdeia #ia
+
+## Para trocar a narração
+1. Salve o novo áudio em `remotion/public/`.
+2. Transcreva com tempo por palavra e gere de novo o `src/words.json` (mesmo formato: `w`, `line`, `t0`, `t1`).
+3. Ajuste `NARRATION` em `src/timeline.ts`. As cenas se reposicionam sozinhas a partir dos tempos das frases.
 
 ## Render
 ```bash
@@ -24,6 +36,7 @@ npx remotion render Reel out/reel.mp4 --browser-executable=/opt/pw-browsers/chro
 (Fora deste ambiente, dá para tirar o `--browser-executable` e o Remotion baixa o Chrome sozinho.)
 
 ## Estrutura
-- `src/timeline.ts`: texto da narração, tempos, cenas e cálculo da legenda palavra por palavra.
+- `src/words.json`: cada palavra da narração com o tempo real.
+- `src/timeline.ts`: cenas calculadas a partir dos tempos das frases.
 - `src/theme.ts`: cores e fontes (as mesmas dos carrosséis).
 - `src/Reel.tsx`: as 7 cenas, a legenda e os efeitos sonoros.
