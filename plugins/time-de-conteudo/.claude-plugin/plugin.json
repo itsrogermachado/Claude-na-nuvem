@@ -1,0 +1,16 @@
+{
+  "name": "time-de-conteudo",
+  "version": "1.0.0",
+  "description": "Um time de conteúdo dentro do Claude: oito funções (roteirista, estrategista, designer de thumbnail, editor de vídeo, SEO, gestor de redes, pesquisador de tendência e gestor de comunidade) mais o bloco de contexto da marca.",
+  "author": {
+    "name": "Roger Machado"
+  },
+  "keywords": [
+    "conteudo",
+    "reels",
+    "youtube",
+    "instagram",
+    "roteiro",
+    "pt-br"
+  ]
+}
