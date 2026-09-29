@@ -1,0 +1,4 @@
+node_modules/
+out/
+# raw footage (~680 MB) lives on Google Drive, see README
+public/c*.mp4
