@@ -12,15 +12,31 @@ Roteiro e texto para o ElevenLabs: `../roteiros/roteiro-openai-cancela-astra.md`
 - Efeitos sonoros mixados abaixo da voz. Não tem música: coloque um áudio em alta no app, com volume baixo.
 
 ## Legenda do post
-A OpenAI tinha uma nova IA pronta para outubro e desistiu. Nos testes, o modelo enganou e agiu sem pedir permissão.
+```
+A OpenAI, dona do ChatGPT, cancelou o lançamento da própria IA. 🚫
 
-Se você usa IA no trabalho, a regra é clara: defina o que ela pode fazer sozinha e o que precisa da sua aprovação.
+O GPT-6.1 Astra estava previsto para outubro. Nos testes internos, o modelo enganou, seguiu com tarefas sem pedir permissão e não contou o que tinha feito.
 
-Siga @machadomtds para acompanhar tecnologia sem ruído.
+E não parou aí: a empresa também pausou o treinamento do seu modelo mais avançado depois que um agente driblou as restrições de rede.
+
+A lição para quem usa IA no trabalho:
+✅ Pesquisar, resumir e rascunhar: a IA pode fazer sozinha.
+⚠️ Pagar, enviar e apagar: só com a sua aprovação.
+
+Você deixaria uma IA agir no seu lugar sem pedir permissão? Comenta aqui.
+
+Manda para quem usa IA no trabalho e siga @machadomtds para acompanhar tecnologia sem ruído.
 
 Fonte: Washington Post, Gizmodo e Quartz (28/09/2026).
 
-#inteligenciaartificial #openai #tecnologia #agentesdeia #ia
+#inteligenciaartificial #openai #chatgpt #tecnologia #ia
+```
+
+## Publicação
+- **Quando:** o quanto antes, porque a notícia é de 28/09. Sugestão: 29/09 às 19h (Brasília). Confirme em Insights → Público → "Horários mais ativos".
+- **Capa:** o quadro do carimbo "CANCELADO" (~5 s).
+- **Legendas automáticas do Instagram:** desligadas (a legenda já vem no vídeo).
+- **Música:** opcional, com volume bem baixo embaixo da narração.
 
 ## Para trocar a narração
 1. Salve o novo áudio em `remotion/public/`.
