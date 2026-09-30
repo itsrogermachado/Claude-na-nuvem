@@ -244,6 +244,7 @@ export const Scenes: React.FC = () => (
 				<>
 					<Photo src="torcida_maracana.jpg" t0={CUTS[14]} t1={CUTS[15]} x={0} y={0} w={1080} h={1920} pos="50% 50%" radius={0} border="transparent" gray={0.3} zoom={[1.05, 1.15]} />
 					<div style={{position: 'absolute', inset: 0, background: 'rgba(5,7,13,0.62)'}} />
+					{t < w(199) - 0.05 && <Label t0={CUTS[14] + 0.1} top={300} text="O QUE MUITA GENTE FALA..." color={C.white} size={48} />}
 					{t > w(199) - 0.05 && <Stamp t0={w(199) - 0.05} text="“ABSURDO”" x={540} y={330} rot={-5} size={120} color={C.white} />}
 					<Crest t0={w(206)} x={540} y={800} size={360} />
 					<Title t0={w(207)} top={1030} big="MAIOR ÍDOLO" accent="da história do Fluminense?" size={150} accentColor={C.gold} />
@@ -252,8 +253,18 @@ export const Scenes: React.FC = () => (
 		</Scene>
 		{/* 16 — "só ganhou dois brasileiros" */}
 		<Scene i={15}>
-			{() => (
+			{(t) => (
 				<>
+					{(() => {
+						// the critics' line, big in the middle, then it moves up as a small label when "SÓ 2" lands
+						const up = prog(t, w(220) - 0.25, 0.25);
+						const inn = prog(t, CUTS[15] + 0.05, 0.3, easeOut);
+						return (
+							<div style={{position: 'absolute', width: W, textAlign: 'center', top: interpolate(up, [0, 1], [760, 210]), fontFamily: SERIF, fontStyle: 'italic', fontWeight: 700, fontSize: interpolate(up, [0, 1], [96, 44]), color: up > 0.5 ? C.mute : C.white, opacity: inn, transform: `translateY(${(1 - inn) * 30}px)`, lineHeight: 1.1}}>
+								“mas ele só ganhou...”
+							</div>
+						);
+					})()}
 					<Title t0={w(220) - 0.1} top={300} big="SÓ 2" accent="campeonatos brasileiros?" size={220} accentColor={C.white} />
 					<Trophy t0={w(222)} x={330} y={780} size={300} year="2010" />
 					<Trophy t0={w(222) + 0.2} x={750} y={780} size={300} year="2012" />
