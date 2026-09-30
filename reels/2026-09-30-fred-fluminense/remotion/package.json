@@ -1,0 +1,24 @@
+{
+  "name": "reel-fred-fluminense",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Reel out/reel.mp4",
+    "still": "remotion still Reel"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.1",
+    "@remotion/cli": "^4.0.529",
+    "@remotion/fonts": "^4.0.529",
+    "@remotion/media-utils": "^4.0.529",
+    "@remotion/three": "^4.0.529",
+    "@types/react": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.529",
+    "three": "^0.186.1",
+    "typescript": "^7.0.2"
+  }
+}
