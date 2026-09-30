@@ -5,9 +5,12 @@ Config.setEntryPoint('src/index.ts');
 Config.setChromiumOpenGlRenderer('swangle');
 // Quality: lossless frame captures, high-bitrate H.264
 Config.setVideoImageFormat('png');
-Config.setCodec('h264');
-Config.setCrf(14);
-Config.setX264Preset('slow');
-Config.setPixelFormat('yuv420p');
+// AUDIO_ONLY=1 renders just the soundtrack (e.g. --codec=aac)
+if (!process.env.AUDIO_ONLY) {
+	Config.setCodec('h264');
+	Config.setCrf(14);
+	Config.setX264Preset('slow');
+	Config.setPixelFormat('yuv420p');
+}
 Config.setAudioBitrate('320k');
 Config.setConcurrency(4);
