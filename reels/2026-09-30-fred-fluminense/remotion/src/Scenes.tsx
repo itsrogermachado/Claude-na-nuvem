@@ -331,9 +331,16 @@ export const Scenes: React.FC = () => (
 		</Scene>
 		{/* 20 — a maior arrancada */}
 		<Scene i={19}>
-			{() => (
+			{(t) => (
 				<>
 					<Photo src="fred_corre.jpg" t0={CUTS[19]} t1={CUTS[20]} x={90} y={560} w={900} h={660} pos="65% 40%" />
+					{t < w(285) - 0.05 && <Label t0={CUTS[19] + 0.1} top={300} text="ALÉM DOS 2 TÍTULOS..." color={C.white} size={50} />}
+					{t >= w(285) - 0.05 && t < w(293) - 0.05 && (
+						<div style={{position: 'absolute', top: 250, width: W, textAlign: 'center'}}>
+							<div style={{fontFamily: SANS, fontWeight: 800, fontSize: 44, letterSpacing: 5, color: C.gold}}>FRED FOI</div>
+							<div style={{fontFamily: DISPLAY, fontSize: 130, color: C.white, lineHeight: 1.1, transform: `scale(${interpolate(springAt(Math.round(t * FPS), w(288), {damping: 11}), [0, 1], [0.6, 1])})`}}>O GRANDE NOME</div>
+						</div>
+					)}
 					<Title t0={w(293)} top={210} big="A MAIOR ARRANCADA" accent="da história?" size={120} accentColor={C.gold} />
 					<Label t0={w(301)} top={1260} text="PARA FUGIR DO REBAIXAMENTO" color={C.red} size={44} />
 				</>
@@ -343,7 +350,9 @@ export const Scenes: React.FC = () => (
 		<Scene i={20}>
 			{(t) => {
 				const drain = prog(t, w(319), 0.9, easeOut);
-				const pct = t < w(319) ? Math.round(99 * prog(t, w(309) - 0.1, 0.6, easeOut)) : Math.round(99 * (1 - drain));
+				const counting = t >= w(309) - 0.35; // the number only appears as it counts up to 99
+				const pct = t < w(319) ? Math.round(99 * prog(t, w(309) - 0.35, 0.6, easeOut)) : Math.round(99 * (1 - drain));
+				const saved = drain >= 0.98;
 				const col = t < w(319) ? C.red : C.verdeLight;
 				return (
 					<>
@@ -351,11 +360,17 @@ export const Scenes: React.FC = () => (
 						<div style={{position: 'absolute', left: 190, top: 330, width: 700, height: 700}}>
 							<svg width={700} height={700} viewBox="0 0 100 100">
 								<circle cx={50} cy={50} r={42} stroke="rgba(255,255,255,0.12)" strokeWidth={9} fill="none" />
-								<circle cx={50} cy={50} r={42} stroke={col} strokeWidth={9} fill="none" strokeLinecap="round" strokeDasharray={`${(pct / 100) * 263.9} 263.9`} transform="rotate(-90 50 50)" />
+								{counting && pct > 0 && <circle cx={50} cy={50} r={42} stroke={col} strokeWidth={9} fill="none" strokeLinecap="round" strokeDasharray={`${(pct / 100) * 263.9} 263.9`} transform="rotate(-90 50 50)" />}
 							</svg>
 							<div style={{position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-								<div style={{fontFamily: DISPLAY, fontSize: 210, color: col, lineHeight: 1}}>{pct}%</div>
-								<div style={{fontFamily: SANS, fontWeight: 800, fontSize: 36, color: C.white, letterSpacing: 3}}>{t < w(319) ? 'CHANCE DE REBAIXAMENTO' : 'ESCAPOU!'}</div>
+								{!counting ? (
+									<div style={{fontFamily: DISPLAY, fontSize: 210, color: 'rgba(255,255,255,0.25)', lineHeight: 1}}>?</div>
+								) : saved ? (
+									<div style={{fontFamily: DISPLAY, fontSize: 150, color: C.verdeLight, lineHeight: 1}}>ESCAPOU!</div>
+								) : (
+									<div style={{fontFamily: DISPLAY, fontSize: 210, color: col, lineHeight: 1}}>{pct}%</div>
+								)}
+								<div style={{fontFamily: SANS, fontWeight: 800, fontSize: 36, color: C.white, letterSpacing: 3, opacity: counting ? 1 : 0}}>{t < w(319) ? 'CHANCE DE REBAIXAMENTO' : 'DO REBAIXAMENTO'}</div>
 							</div>
 						</div>
 						{t > w(319) && <Label t0={w(319) + 0.3} top={1060} text="11 JOGOS • 7 VITÓRIAS • 4 EMPATES" color={C.white} size={40} />}
@@ -374,6 +389,7 @@ export const Scenes: React.FC = () => (
 			{(t) => (
 				<>
 					<Photo src="fred_treino_jul14.jpg" t0={CUTS[21]} t1={CUTS[22]} x={90} y={520} w={900} h={640} pos="62% 45%" />
+					{t < w(334) - 0.05 && <Label t0={CUTS[21] + 0.1} top={300} text="E NESSE ANO TÃO DIFÍCIL..." color={C.white} size={48} />}
 					<Title t0={w(334)} top={200} big="2014" accent="de volta pra casa" size={200} accentColor={C.gold} />
 					<Label t0={w(340)} top={1185} text="29/07/2014 • TREINO NAS LARANJEIRAS" color={C.mute} size={34} />
 					{t > w(344) &&
@@ -387,6 +403,7 @@ export const Scenes: React.FC = () => (
 				<>
 					<Photo src="torcida_panorama.jpg" t0={CUTS[22]} t1={CUTS[23]} x={0} y={0} w={1080} h={1920} pos={`${interpolate(t, [CUTS[22], CUTS[23]], [20, 80])}% 50%`} radius={0} border="transparent" gray={0.15} zoom={[1.0, 1.08]} />
 					<div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(5,7,13,0.75), rgba(5,7,13,0.45) 50%, rgba(5,7,13,0.8))'}} />
+					<Label t0={CUTS[22] + 0.1} top={190} text="O CONCEITO DE" color={C.gold} size={46} />
 					<Title t0={w(361)} top={260} big="ÍDOLO" accent="vai muito além de título" size={220} accentColor={C.mute} />
 					{t > w(371) - 0.08 && (
 						<div style={{position: 'absolute', top: 760, width: W, textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontWeight: 900, fontSize: 190, color: C.gold, textShadow: '0 0 60px rgba(242,193,78,0.5)', transform: `scale(${interpolate(springAt(Math.round(t * FPS), w(371) - 0.08, {damping: 10}), [0, 1], [0.4, 1])})`}}>
