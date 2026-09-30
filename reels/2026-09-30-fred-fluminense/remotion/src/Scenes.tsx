@@ -111,6 +111,12 @@ export const Scenes: React.FC = () => (
 			{(t) => (
 				<>
 					<Photo src="fred_capitao.jpg" t0={CUTS[5]} t1={CUTS[6]} x={160} y={760} w={760} h={600} pos="50% 25%" />
+					{t < w(62) - 0.05 && (
+						<div style={{position: 'absolute', top: 300, width: W, textAlign: 'center', opacity: prog(t, CUTS[5] + 0.05, 0.25)}}>
+							<div style={{fontFamily: SANS, fontWeight: 800, fontSize: 44, letterSpacing: 6, color: C.gold}}>NESSE VÍDEO</div>
+							{t > w(60) - 0.05 && <div style={{fontFamily: DISPLAY, fontSize: 150, color: C.white, lineHeight: 1.1, transform: `scale(${interpolate(springAt(Math.round(t * FPS), w(60) - 0.05, {damping: 11}), [0, 1], [0.6, 1])})`}}>O PORQUÊ</div>}
+						</div>
+					)}
 					<Title t0={w(62)} top={250} big="MENTIRAM" accent="pra você sobre" size={190} color={C.red} accentColor={C.white} />
 					{t > w(66) - 0.05 && (
 						<div style={{position: 'absolute', top: 560, width: W, textAlign: 'center', fontFamily: DISPLAY, fontSize: 170, color: C.white, lineHeight: 1, transform: `scale(${interpolate(springAt(Math.round(t * FPS), w(66) - 0.05, {damping: 9, stiffness: 260}), [0, 1], [2, 1])})`}}>
@@ -124,6 +130,7 @@ export const Scenes: React.FC = () => (
 		<Scene i={6}>
 			{(t) => (
 				<>
+					<div style={{position: 'absolute', top: 330, width: W, textAlign: 'center', fontFamily: DISPLAY, fontSize: 560, lineHeight: 1, color: 'rgba(255,223,0,0.10)', opacity: 1 - prog(t, w(75), 0.3)}}>9</div>
 					<Title t0={CUTS[6] + 0.05} top={170} big="CAMISA 9" accent="da seleção" size={120} accentColor={C.gold} />
 					<Photo src="ronaldo.jpg" t0={w(75)} t1={CUTS[7]} x={110} y={430} w={400} h={430} pos="50% 25%" from="left" />
 					<Photo src="romario.jpg" t0={w(77)} t1={CUTS[7]} x={570} y={430} w={400} h={430} pos="50% 18%" from="right" />
