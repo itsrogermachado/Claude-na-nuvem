@@ -26,7 +26,7 @@ export const Card: React.FC<{x: number; y: number; w: number; h: number; s?: num
 			background: 'linear-gradient(160deg, #1E1612 0%, #0E0A08 100%)',
 			border: '3px solid rgba(255,138,61,0.35)',
 			boxShadow: '0 30px 70px rgba(0,0,0,0.55), 0 0 0 4px #000',
-			transform: `scale(${s})`,
+			transform: `scale(${0.86 + 0.14 * s})`,
 			transformOrigin: origin,
 			opacity: clamp01(s * 2),
 			overflow: 'hidden',

@@ -1,5 +1,5 @@
 import {Easing, interpolate} from 'remotion';
-import {FPS, H, SRC_H, SRC_W, W, clipStart, faceX, faceY, segIndexAt, segmentAt, wordEnd, wordT} from './timeline';
+import {FPS, H, SRC_H, SRC_W, W, clipStart, faceW, faceX, faceY, segIndexAt, segmentAt, wordEnd, wordT} from './timeline';
 
 // ---------------------------------------------------------------------------
 // Key moments (output seconds), all derived from the transcript / cuts
@@ -48,17 +48,17 @@ const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 
 // Punch-ins on the words that carry the story (4K source, so these stay sharp)
 const PUNCH: [number, number][] = [
-	[T.valor, 0.1],
-	[T.real, 0.06],
-	[T.valeu, 0.08],
-	[T.empire, 0.1],
-	[T.automatico, 0.07],
-	[T.vendendo, 0.06],
-	[T.tres, 0.08],
-	[T.melhor, 0.1],
+	[T.valor, 0.06],
+	[T.real, 0.036],
+	[T.valeu, 0.048],
+	[T.empire, 0.06],
+	[T.automatico, 0.042],
+	[T.vendendo, 0.036],
+	[T.tres, 0.048],
+	[T.melhor, 0.06],
 ];
 // alternate framing per cut so the jump cuts read as intentional
-const BASE = [1.0, 1.1, 1.03, 1.12, 1.0, 1.1, 1.0, 1.1, 1.04, 1.12, 1.02, 1.1, 1.0, 1.08];
+const BASE = [1.0, 1.06, 1.02, 1.07, 1.0, 1.06, 1.0, 1.06, 1.02, 1.07, 1.0, 1.06, 1.0, 1.05];
 
 const zoomAt = (frame: number) => {
 	const t = frame / FPS;
@@ -70,7 +70,7 @@ const zoomAt = (frame: number) => {
 		z += amt * interpolate(t, [p - 0.06, p + 0.22], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
 	}
 	// slow push across each segment so the frame is never static
-	z += 0.025 * clamp((t - segStart) / 3, 0, 1);
+	z += 0.015 * clamp((t - segStart) / 3, 0, 1);
 	return z;
 };
 
@@ -84,8 +84,10 @@ export const camera = (frame: number): Cam => {
 	const s = H / ch;
 	const fx = faceX(frame),
 		fy = faceY(frame);
-	// at zoom 1 the crop is the whole frame; as we zoom, keep the face at the same relative position, nudged to centre
-	const x0 = clamp(fx - cw * (0.7 * (fx / SRC_W) + 0.3 * 0.5), 0, SRC_W - cw);
-	const y0 = clamp(fy - ch * (fy / SRC_H), 0, SRC_H - ch);
+	// zoom about the top of the head: it stays where it is in the original frame and the face grows downwards,
+	// so the graphics above never end up on the face
+	const headTop = fy - 0.62 * faceW(frame);
+	const x0 = clamp(fx * (1 - 1 / z), 0, SRC_W - cw);
+	const y0 = clamp(headTop * (1 - 1 / z), 0, SRC_H - ch);
 	return {x0, y0, s};
 };

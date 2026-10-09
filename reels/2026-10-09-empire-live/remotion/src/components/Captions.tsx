@@ -35,8 +35,8 @@ const clean = (s: string) => s.toUpperCase().replace(/[.,]+$/, '');
 const KEY_GREEN = new Set(['VALOR', 'REAL', 'VALEU', 'PENA', 'VENDENDO', 'AFILIADO', 'MELHOR', 'MELHORES', 'PRONTO']);
 const KEY_ORANGE = new Set(['ENSINAR', 'ANÚNCIOS', 'TEMPO', 'SHOPEE', 'EMPIRE', 'LIVE', 'LINK', 'BIO', 'CONECTAR', 'AUTOMÁTICO', 'PRODUTOS', 'MERCADO', 'LIVRE', 'TIKTOK', 'TRÊS', 'FERRAMENTA']);
 
-/** Word-by-word captions, sitting on top of the head (the face fills the lower two thirds of the frame) */
-export const CAPTION_Y = 742;
+/** Word-by-word captions, just under the graphics band and above the face (top of the block; a second line grows down over the hair) */
+export const CAPTION_Y = 492;
 
 export const Captions: React.FC = () => {
 	const frame = useCurrentFrame();
@@ -52,16 +52,17 @@ export const Captions: React.FC = () => {
 				left: (W - 940) / 2,
 				width: 940,
 				top: CAPTION_Y,
-				transform: `translateY(-50%) translateY(${interpolate(pop, [0, 1], [26, 0])}px) scale(${interpolate(pop, [0, 1], [0.78, 1])})`,
+				transform: `translateY(${interpolate(pop, [0, 1], [26, 0])}px) scale(${interpolate(pop, [0, 1], [0.78, 1])})`,
+				transformOrigin: '50% 0',
 				opacity: clamp01(pop * 2.2),
 				display: 'flex',
 				flexWrap: 'wrap',
 				justifyContent: 'center',
 				alignItems: 'center',
-				columnGap: 34,
+				columnGap: 30,
 				fontFamily: SANS,
 				fontWeight: 900,
-				fontSize: 76,
+				fontSize: 64,
 				lineHeight: 1.16,
 				letterSpacing: -0.5,
 			}}

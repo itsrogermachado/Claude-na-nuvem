@@ -17,7 +17,7 @@ const TOTAL = 18567.36;
 
 export const Hook: React.FC = () => {
 	const {frame, t} = useT();
-	const a = springAt(frame, 0.0, {damping: 15, stiffness: 200});
+	const a = springAt(frame, -0.4, {damping: 15, stiffness: 200});
 	const b = springAt(frame, T.fiz - 0.25, {damping: 10, stiffness: 190});
 	const swap = prog(t, T.valor - 0.18, 0.22);
 	const phone = springAt(frame, T.valor - 0.12, {damping: 13, stiffness: 160});
@@ -177,7 +177,7 @@ export const Without: React.FC = () => {
 export const Poll: React.FC = () => {
 	const {frame, t} = useT();
 	const s = springAt(frame, T.eai - 0.02, {damping: 12, stiffness: 170});
-	const q = springAt(frame, T.valeu - 0.08, {damping: 10, stiffness: 220});
+	const q = springAt(frame, T.eai + 0.05, {damping: 10, stiffness: 220});
 	const tapT = T.nao + 0.2;
 	const hand = prog(t, T.nao - 0.35, 0.5, easeOut);
 	const tap = t >= tapT ? Math.sin(clamp01((t - tapT) / 0.18) * Math.PI) : 0;
@@ -239,12 +239,12 @@ export const Tool: React.FC = () => {
 	const p = prog(t, T.baixei, 0.85, easeOut);
 	const toLogo = prog(t, T.empire - 0.25, 0.2);
 	const logo = springAt(frame, T.empire - 0.12, {damping: 12, stiffness: 120});
-	const spin = interpolate(logo, [0, 1], [-200, 0]) + 6 * Math.sin(t * 1.6);
+	const spin = interpolate(logo, [0, 1], [-75, 0]) + 6 * Math.sin(t * 1.6);
 	const glow = Math.sin(clamp01((t - T.empire) / 0.6) * Math.PI);
 	const link = springAt(frame, T.link - 0.08, {damping: 10, stiffness: 230});
 	const bob = Math.sin(Math.max(0, t - T.link) * 7) * 10;
 	return (
-		<Scene t0={T.take2} t1={T.entrar - 0.1}>
+		<Scene t0={T.take2} t1={T.entrar - 0.22}>
 			{/* PASSO 1 */}
 			<div style={{position: 'absolute', left: 70, top: 70, padding: '10px 26px', borderRadius: 30, background: C.white, fontFamily: SANS, fontWeight: 900, fontSize: 36, color: C.black, boxShadow: '0 0 0 4px #000', transform: `scale(${badge})`, transformOrigin: '0 50%', opacity: 1 - toLogo * 0}}>
 				PASSO 1
@@ -533,7 +533,7 @@ export const Cta: React.FC = () => {
 	const {frame, t} = useT();
 	const end = DURATION / FPS;
 	const logo = springAt(frame, T.melhor - 0.15, {damping: 12, stiffness: 140});
-	const spin = interpolate(logo, [0, 1], [180, 0]) + 5 * Math.sin(t * 1.8);
+	const spin = interpolate(logo, [0, 1], [75, 0]) + 5 * Math.sin(t * 1.8);
 	const pill = springAt(frame, T.momento2 - 0.1, {damping: 10, stiffness: 230});
 	const bob = Math.sin(Math.max(0, t - T.momento2) * 7) * 9;
 	if (t < T.melhor - 0.17) return null;

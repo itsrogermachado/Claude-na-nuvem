@@ -1,11 +1,12 @@
 # Reel: "Como eu fiz esse valor" (Empire Live)
 
-**Arquivo final:** `reel_empire_live_1080x1920.mp4`. Especificações: 1080×1920, 60 fps (igual ao original), H.264 CRF 14, AAC 320k, -14 LUFS, 34,6 s.
+**Arquivo final:** `reel_empire_live_1080x1920.mp4`. Especificações: 1080×1920, 60 fps (igual ao original), H.264 (render em CRF 14, arquivo final em CRF 17 para caber no limite de 100 MB do GitHub), AAC 320k, -14 LUFS, 34,7 s.
 
 A edição foi feita em **JavaScript/React com [Remotion](https://www.remotion.dev)**, em `remotion/`.
 
 ## O que foi e o que não foi mexido
-- **Imagem:** a original, sem filtro, correção de cor, nitidez ou vinheta. Só tem cortes e zooms (punch-in). Como os takes são 4K, os zooms não perdem nitidez.
+- **Imagem:** a original, sem filtro, correção de cor, nitidez ou vinheta. Só tem cortes e zooms leves (punch-in). Como os takes são 4K, os zooms não perdem nitidez.
+- **Layout:** as animações ficam numa faixa no topo (escala 0,74) e a legenda logo abaixo dela. O zoom é ancorado no topo da cabeça, então o rosto cresce para baixo e nunca entra embaixo dos gráficos.
 - **Voz:** o áudio original, sem efeito nenhum. Tem só fades de 6/10 ms em cada corte e o nível final em -14 LUFS (padrão do Instagram).
 - **Trilha e efeitos sonoros:** originais, sintetizados em `tools/make_audio.py`, então não têm problema de direitos autorais. A trilha abaixa sozinha quando você fala.
 
@@ -39,7 +40,7 @@ npm install
 python3 tools/prepare_data.py <pasta com words.json e faces.json>   # gera src/data.json e public/voice.wav
 python3 tools/make_audio.py public 11.833 24.717                  # trilha + efeitos
 npx remotion render Reel out/reel_raw.mp4 --gl=swangle
-ffmpeg -i out/reel_raw.mp4 -c:v copy -af "loudnorm=I=-14:TP=-1:LRA=11" -c:a aac -b:a 320k -movflags +faststart final.mp4
+ffmpeg -i out/reel_raw.mp4 -c:v libx264 -preset slow -crf 17 -af "loudnorm=I=-14:TP=-1:LRA=11" -ar 48000 -c:a aac -b:a 320k -movflags +faststart final.mp4
 ```
 - `words.json` é a transcrição palavra por palavra (Whisper large-v3). `faces.json` é o rastreamento do rosto (OpenCV), usado nos zooms.
 - `node tools/stills.mjs 1.5 10 20` gera quadros de prévia em `out/`.

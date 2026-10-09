@@ -118,3 +118,4 @@ const smoothed = (fn: (seg: Segment, ts: number) => number, sigmaS: number) => {
 
 export const faceX = smoothed((seg, ts) => interp(CLIPS[seg.clip].faces, ts, 1), 0.5);
 export const faceY = smoothed((seg, ts) => interp(CLIPS[seg.clip].faces, ts, 2), 0.6);
+export const faceW = smoothed((seg, ts) => interp(CLIPS[seg.clip].faces, ts, 3), 0.8);
