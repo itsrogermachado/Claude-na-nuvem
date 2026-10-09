@@ -1,6 +1,8 @@
 # Reel: "Como eu fiz esse valor" (Empire Live)
 
-**Arquivo final:** `reel_empire_live_1080x1920.mp4`. Especificações: 1080×1920, 60 fps (igual ao original), H.264 (render em CRF 14, arquivo final em CRF 17 para caber no limite de 100 MB do GitHub), AAC 320k, -14 LUFS, 34,7 s.
+**Arquivo master (qualidade máxima):** `reel_empire_live_1080x1920_master.mp4` (162 MB, via Git LFS). É o render direto do Remotion em CRF 14, sem recompressão do vídeo; só o áudio passou pelo ajuste de -14 LUFS.
+
+**Arquivo final leve:** `reel_empire_live_1080x1920.mp4`. Especificações: 1080×1920, 60 fps (igual ao original), H.264 (render em CRF 14, arquivo final em CRF 17 para caber no limite de 100 MB do GitHub), AAC 320k, -14 LUFS, 34,7 s.
 
 A edição foi feita em **JavaScript/React com [Remotion](https://www.remotion.dev)**, em `remotion/`.
 
