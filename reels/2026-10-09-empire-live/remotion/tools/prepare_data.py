@@ -60,7 +60,8 @@ for k, s in enumerate(segments):
     a, b = s['srcStart'] / 60, s['srcEnd'] / 60
     fc.append(f"[{order.index(s['clip'])}:a]atrim=start_sample={round(a * 48000)}:end_sample={round(b * 48000)},"
               f"asetpts=PTS-STARTPTS,afade=t=in:d=0.006,afade=t=out:st={b - a - 0.010:.4f}:d=0.010[s{k}]")
-fc.append(''.join(f'[s{k}]' for k in range(len(segments))) + f'concat=n={len(segments)}:v=0:a=1[o]')
+# plain gain only (no compression/EQ): the iPhone take sits around -25 LUFS, +8 dB brings it to ~-17.5 with peaks under -1 dBFS
+fc.append(''.join(f'[s{k}]' for k in range(len(segments))) + f'concat=n={len(segments)}:v=0:a=1,volume=8dB[o]')
 subprocess.run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', ';'.join(fc), '-map', '[o]',
                 '-ar', '48000', '-ac', '2', 'public/voice.wav'], check=True)
 total = sum(s['srcEnd'] - s['srcStart'] for s in segments)

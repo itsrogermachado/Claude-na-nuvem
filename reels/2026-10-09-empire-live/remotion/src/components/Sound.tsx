@@ -5,6 +5,9 @@ import {DURATION, FPS, speaking} from '../timeline';
 
 type Cue = {t: number; file: string; vol: number};
 
+// effects sit under the voice, never on top of it
+const SFX_GAIN = 0.45;
+
 /** Every effect is tied to something happening on screen */
 const CUES: Cue[] = [
 	{t: 0.0, file: 'whoosh_short', vol: 0.22},
@@ -54,9 +57,9 @@ const CUES: Cue[] = [
 
 const MUSIC_VOL = (() => {
 	const v: number[] = [];
-	let env = 0.3;
+	let env = 0.2;
 	for (let f = 0; f < DURATION + 60; f++) {
-		const target = speaking(f / FPS) ? 0.13 : 0.3;
+		const target = speaking(f / FPS) ? 0.08 : 0.2;
 		env += (target - env) * (target < env ? 0.25 : 0.04);
 		v.push(env);
 	}
@@ -69,7 +72,7 @@ export const Sound: React.FC = () => (
 		<Audio src={staticFile('music.wav')} volume={(f) => MUSIC_VOL[Math.min(f, MUSIC_VOL.length - 1)]} />
 		{CUES.map((c, i) => (
 			<Sequence key={i} from={Math.max(0, Math.round(c.t * FPS))} layout="none">
-				<Audio src={staticFile(`sfx/${c.file}.wav`)} volume={c.vol} />
+				<Audio src={staticFile(`sfx/${c.file}.wav`)} volume={c.vol * SFX_GAIN} />
 			</Sequence>
 		))}
 	</>

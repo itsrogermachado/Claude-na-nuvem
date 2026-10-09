@@ -9,7 +9,8 @@ A edição foi feita em **JavaScript/React com [Remotion](https://www.remotion.d
 ## O que foi e o que não foi mexido
 - **Imagem:** a original, sem filtro, correção de cor, nitidez ou vinheta. Só tem cortes e zooms leves (punch-in). Como os takes são 4K, os zooms não perdem nitidez.
 - **Layout:** as animações ficam numa faixa no topo (escala 0,74) e a legenda logo abaixo dela. O zoom é ancorado no topo da cabeça, então o rosto cresce para baixo e nunca entra embaixo dos gráficos.
-- **Voz:** o áudio original, sem efeito nenhum. Tem só fades de 6/10 ms em cada corte e o nível final em -14 LUFS (padrão do Instagram).
+- **Voz:** o áudio original, sem efeito nenhum (sem compressor nem equalização). Tem só fades de 6/10 ms em cada corte, um ganho de +8 dB (o take foi gravado baixo, em -25 LUFS) e o nível final em -14 LUFS (padrão do Instagram).
+- **Mixagem:** a voz fica cerca de 13 dB acima dos efeitos e da trilha somados.
 - **Trilha e efeitos sonoros:** originais, sintetizados em `tools/make_audio.py`, então não têm problema de direitos autorais. A trilha abaixa sozinha quando você fala.
 
 ## Material bruto
@@ -42,6 +43,8 @@ npm install
 python3 tools/prepare_data.py <pasta com words.json e faces.json>   # gera src/data.json e public/voice.wav
 python3 tools/make_audio.py public 11.833 24.717                  # trilha + efeitos
 npx remotion render Reel out/reel_raw.mp4 --gl=swangle
+# para mexer só no som, sem renderizar o vídeo de novo:
+npx remotion render Reel out/audio.wav --codec=wav --config=remotion.audio.config.ts
 ffmpeg -i out/reel_raw.mp4 -c:v libx264 -preset slow -crf 17 -af "loudnorm=I=-14:TP=-1:LRA=11" -ar 48000 -c:a aac -b:a 320k -movflags +faststart final.mp4
 ```
 - `words.json` é a transcrição palavra por palavra (Whisper large-v3). `faces.json` é o rastreamento do rosto (OpenCV), usado nos zooms.
