@@ -1,0 +1,37 @@
+feature,area,priority,original,clone,notes
+Header fixo com logo menu e CTAs,site,must,yes,no,S01
+Toggle de tema claro/escuro,site,should,yes,no,S01 header
+Hero com título destacado e 2 CTAs,site,must,yes,no,S01
+Notebook 3D que troca de site sozinho,site,should,yes,no,S01 hero; usar prints próprios
+Marquee de ramos de negócio,site,should,yes,no,S01
+Seção de dores com CTA,site,must,yes,no,S01
+Diagrama dos 4 módulos,site,must,yes,no,S01
+Galeria por dentro com 5 cards do app,site,must,yes,no,S01; prints próprios do app
+Seção de vídeo de demonstração,site,could,yes,no,S01
+Planos com toggle mensal/anual e 3 cards,site,must,yes,no,S01; preços corretos nos dois ciclos
+Ver todos os N benefícios expansível,site,could,yes,no,S01
+Carrossel 3D de templates por ramo,site,should,yes,no,S01
+Como funciona em 4 passos,site,must,yes,no,S01
+É pra você se / não é,site,must,yes,no,S01
+FAQ em acordeão,site,must,yes,no,S01 S02
+CTA final e footer,site,must,yes,no,S01 S02
+Botão flutuante de ajuda,site,could,yes,no,S01
+Responsivo mobile,site,must,yes,no,todas
+Página de afiliados,site,should,yes,no,S02
+Criar conta com formulário,auth,must,yes,no,S03; validação no front
+Criar conta com Google,auth,should,yes,no,S03; replica-backend
+Entrar com e-mail e senha,auth,must,yes,no,S04
+Esqueci minha senha,auth,should,yes,no,S04
+Paguei e não recebi o acesso,auth,could,yes,no,S04
+Páginas legais (termos privacidade cookies),site,should,yes,no,S05-S07
+Script de UTM (utmify),site,could,yes,no,rastreamento de campanha
+Dashboard com KPIs e funil,app,must,yes,no,fase 2 S20
+Prospecção por cidade e ramo,app,must,yes,no,fase 2 S21; API Google Places
+Gerador de site por questionário,app,must,yes,no,fase 2 S25
+Editor visual,app,must,yes,no,fase 2 S26
+Precificação e abordagem,app,should,yes,no,fase 2 S22 S23
+CRM com roteiro e objeções,app,should,yes,no,fase 2 S24
+Templates premium feitos por designers,app,could,yes,skip,conteúdo próprio do Valy
+Aulas gravadas e grupo de network,app,could,yes,skip,conteúdo e comunidade
+Checkout real Pix/cartão,payments,must,yes,skip,fica de mentira até replica-backend
+Vídeo de demonstração,site,could,yes,skip,mídia própria
