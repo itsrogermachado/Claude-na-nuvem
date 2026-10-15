@@ -1,0 +1,66 @@
+<title>Torre Assombrada</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Jogo da torre de Halloween com fichas fictícias: desça a torre, bata a meta e resgate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nosifer&family=Poppins:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="app.css">
+
+<!-- Cenário fixo: céu, lua, cemitério e abóboras -->
+<div id="cenario" aria-hidden="true">
+  <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <radialGradient id="lua-brilho" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#f6e7c8" stop-opacity=".5"/>
+        <stop offset="1" stop-color="#f6e7c8" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="vela" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#ffb347" stop-opacity=".85"/>
+        <stop offset="1" stop-color="#ff7518" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle cx="300" cy="120" r="110" fill="url(#lua-brilho)"/>
+    <circle cx="300" cy="120" r="44" fill="#efe2c4"/>
+    <circle cx="286" cy="108" r="8" fill="#ddcfae"/>
+    <circle cx="312" cy="134" r="11" fill="#ddcfae"/>
+    <circle cx="318" cy="102" r="5" fill="#ddcfae"/>
+    <!-- morcegos -->
+    <path class="morcego" d="M60 160 q8 -8 16 0 q4 -6 8 0 q4 -6 8 0 q8 -8 16 0 q-10 0 -16 6 q-4 -4 -8 0 q-6 -6 -16 -6 q-2 0 -8 0z" fill="#1a0f2c"/>
+    <path class="morcego m2" d="M200 220 q6 -6 12 0 q3 -4 6 0 q3 -4 6 0 q6 -6 12 0 q-8 0 -12 4 q-3 -3 -6 0 q-4 -4 -12 -4z" fill="#1a0f2c"/>
+    <!-- colinas -->
+    <path d="M0 640 Q90 590 190 625 T400 600 V800 H0Z" fill="#1b0f30"/>
+    <!-- árvore seca -->
+    <path d="M40 640 L48 520 Q30 500 18 470 M47 540 Q70 510 92 500 M46 560 Q20 545 8 530 M52 500 Q60 470 50 440" stroke="#120a20" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M355 610 L350 500 Q368 480 384 470 M351 520 Q330 500 318 480 M352 540 Q372 530 392 535" stroke="#120a20" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- lápides -->
+    <path d="M110 650 v-40 a20 20 0 0 1 40 0 v40z" fill="#26183f"/>
+    <path d="M250 655 v-32 a16 16 0 0 1 32 0 v32z" fill="#26183f"/>
+    <path d="M178 660 v-22 h-8 v-8 h8 v-10 h8 v10 h8 v8 h-8 v22z" fill="#26183f"/>
+    <path d="M0 700 Q120 660 220 690 T400 670 V800 H0Z" fill="#120a20"/>
+    <!-- abóboras acesas -->
+    <g class="lanterna">
+      <circle cx="70" cy="690" r="34" fill="url(#vela)"/>
+      <ellipse cx="70" cy="694" rx="18" ry="14" fill="#c9530c"/>
+      <path d="M62 690 l4 -4 l4 4z M74 690 l4 -4 l4 4z M62 698 q8 6 16 0z" fill="#ffd27a"/>
+    </g>
+    <g class="lanterna l2">
+      <circle cx="330" cy="700" r="40" fill="url(#vela)"/>
+      <ellipse cx="330" cy="705" rx="22" ry="17" fill="#c9530c"/>
+      <path d="M320 700 l5 -5 l5 5z M335 700 l5 -5 l5 5z M320 709 q10 7 20 0z" fill="#ffd27a"/>
+    </g>
+  </svg>
+</div>
+
+<div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+<div id="app"></div>
+<div id="modais"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="store.js"></script>
+<script src="audio.js"></script>
+<script src="game.js"></script>
+<script src="ui.js"></script>
+<script src="pages.js"></script>
+<script src="jogo.js"></script>
+<script src="admin.js"></script>
+<script>App.iniciar();</script>
