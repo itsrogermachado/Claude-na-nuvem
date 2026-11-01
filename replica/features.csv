@@ -1,37 +1,50 @@
 feature,area,priority,original,clone,notes
-Header fixo com logo menu e CTAs,site,must,yes,no,S01
-Toggle de tema claro/escuro,site,should,yes,no,S01 header
-Hero com título destacado e 2 CTAs,site,must,yes,no,S01
-Notebook 3D que troca de site sozinho,site,should,yes,no,S01 hero; usar prints próprios
-Marquee de ramos de negócio,site,should,yes,no,S01
-Seção de dores com CTA,site,must,yes,no,S01
-Diagrama dos 4 módulos,site,must,yes,no,S01
-Galeria por dentro com 5 cards do app,site,must,yes,no,S01; prints próprios do app
-Seção de vídeo de demonstração,site,could,yes,no,S01
-Planos com toggle mensal/anual e 3 cards,site,must,yes,no,S01; preços corretos nos dois ciclos
-Ver todos os N benefícios expansível,site,could,yes,no,S01
-Carrossel 3D de templates por ramo,site,should,yes,no,S01
-Como funciona em 4 passos,site,must,yes,no,S01
-É pra você se / não é,site,must,yes,no,S01
-FAQ em acordeão,site,must,yes,no,S01 S02
-CTA final e footer,site,must,yes,no,S01 S02
-Botão flutuante de ajuda,site,could,yes,no,S01
-Responsivo mobile,site,must,yes,no,todas
-Página de afiliados,site,should,yes,no,S02
-Criar conta com formulário,auth,must,yes,no,S03; validação no front
-Criar conta com Google,auth,should,yes,no,S03; replica-backend
-Entrar com e-mail e senha,auth,must,yes,no,S04
-Esqueci minha senha,auth,should,yes,no,S04
-Paguei e não recebi o acesso,auth,could,yes,no,S04
-Páginas legais (termos privacidade cookies),site,should,yes,no,S05-S07
-Script de UTM (utmify),site,could,yes,no,rastreamento de campanha
-Dashboard com KPIs e funil,app,must,yes,no,fase 2 S20
-Prospecção por cidade e ramo,app,must,yes,no,fase 2 S21; API Google Places
-Gerador de site por questionário,app,must,yes,no,fase 2 S25
-Editor visual,app,must,yes,no,fase 2 S26
-Precificação e abordagem,app,should,yes,no,fase 2 S22 S23
-CRM com roteiro e objeções,app,should,yes,no,fase 2 S24
-Templates premium feitos por designers,app,could,yes,skip,conteúdo próprio do Valy
-Aulas gravadas e grupo de network,app,could,yes,skip,conteúdo e comunidade
-Checkout real Pix/cartão,payments,must,yes,skip,fica de mentira até replica-backend
-Vídeo de demonstração,site,could,yes,skip,mídia própria
+Entrar com Google,conta,must,yes,no,S03 S04
+Cadastro só por convite (link do Roger),conta,must,no,no,Altavo: grátis e fechado para o pessoal do Roger
+Limite de uso por pessoa (buscas e gerações por mês),conta,must,yes,no,controla o custo da API do Google e da IA
+Painel do admin (quem usa e quanto custa),conta,should,no,no,Altavo: o Roger ver o consumo de cada pessoa
+Busca por ramo + cidade + raio,radar,must,yes,no,S21 Google Places API oficial
+Filtrar só negócios sem site,radar,must,yes,no,S21 campo website vazio
+Nota de oportunidade 0-99,radar,should,yes,no,S21 nota x nº de avaliações x sem site
+Mapa com os resultados,radar,could,yes,no,S21 OpenFreeMap (grátis)
+Dinheiro em jogo (nº x preço do ramo),radar,could,yes,no,S21
+Seleção em lote e mandar pro CRM,radar,should,yes,no,S21
+Gerar site a partir do negócio do radar (1 clique),gerador,must,yes,no,F02
+Gerar site digitando nome + ramo + cidade,gerador,must,yes,no,S01 demo / S23
+Questionário guiado (briefing),gerador,should,yes,no,S23 não visto: pedir prints ao Roger
+Progresso em 5 passos durante a geração,gerador,should,yes,no,S01 demo
+Textos escritos pela IA no formato do template,gerador,must,yes,no,JSON por seção
+Nunca inventar números nem depoimentos,gerador,must,no,no,Altavo melhor que a Valy: usar só nota real do Google ou campo marcado
+Fotos de banco livre por ramo,gerador,must,yes,no,Unsplash/Pexels API
+Paleta de cores por ramo ou da marca do cliente,gerador,must,yes,no,
+Gerar até 10 sites em lote,gerador,could,yes,no,fila em segundo plano
+Templates por ramo (começar com 3),templates,must,yes,no,usar os modelos que o Roger já tem na Altavo
+Templates para todos os 13 ramos da Altavo,templates,should,yes,no,
+Trocar de template mantendo o conteúdo,templates,could,yes,no,Pro na Valy
+Editor: clicar e editar texto,editor,must,yes,no,S24 não visto
+Editor: trocar foto e cor,editor,must,yes,no,S24
+Editor: mostrar/ocultar e reordenar seções,editor,should,yes,no,S24 (Puck serve aqui)
+Pedido de edição por IA,editor,should,yes,no,S24 IA reescreve um trecho do JSON
+Publicar em altavo.../s/slug,publicar,must,yes,no,S10
+Domínio próprio do cliente com SSL,publicar,should,yes,no,F05 Vercel Domains API
+Baixar o site (HTML),publicar,could,yes,no,termos Valy
+Selo "feito com Altavo" no rodapé,publicar,could,yes,no,divulgação grátis
+Form do site abre WhatsApp com os dados,site gerado,must,yes,no,S10 wa.me
+Botão flutuante de WhatsApp e mapa,site gerado,must,yes,no,
+SEO básico do site gerado (título / descrição / LocalBusiness),site gerado,should,no,no,
+CRM kanban (Novo / Contatado / Negociando / Fechado),crm,must,yes,no,S25
+Ficha do lead com roteiro e objeções,crm,should,yes,no,S25
+Follow-up com data,crm,could,yes,no,S25
+Script de abordagem em 5 blocos com o nome do negócio,abordagem,must,yes,no,S26 textos próprios do Roger (a skill de nutrição já tem um)
+Abrir no WhatsApp com a mensagem pronta,abordagem,must,yes,no,S26 wa.me
+Tabela de preço por porte e ramo,precificação,should,yes,no,S27 valores do Roger
+Proposta pronta para copiar,precificação,should,yes,no,S27
+Contrato em PDF com os dados do cliente,contratos,could,yes,no,S28 modelo jurídico próprio
+Painel de vendas (KPIs e funil),painel,could,yes,no,S20
+Link na bio,produtos extras,could,yes,no,S29 fase 3
+Página de vendas,produtos extras,could,yes,no,S30 fase 3
+Aulas / área de membros,conteúdo,skip,yes,no,conteúdo da Valy: o Roger grava as dele se quiser
+Planos pagos e checkout,cobrança,skip,yes,no,a Altavo vai ser grátis
+Programa de afiliados,cobrança,skip,yes,no,não faz sentido sendo grátis
+Prospecção em 15 países,radar,skip,yes,no,o público do Roger é local
+Templates / textos / código da Valy,tudo,skip,yes,no,pertencem à Valy (termos §8)
