@@ -1,0 +1,116 @@
+[
+ {
+  "n": 1,
+  "texto": "Um prédio de vinte andares pesa milhares de toneladas.",
+  "inicio": 0,
+  "fim": 3.02
+ },
+ {
+  "n": 2,
+  "texto": "Por que ele não afunda nem tomba?",
+  "inicio": 3.02,
+  "fim": 5.34
+ },
+ {
+  "n": 3,
+  "texto": "Você vai construir um agora.",
+  "inicio": 5.76,
+  "fim": 7.26
+ },
+ {
+  "n": 4,
+  "texto": "Primeiro, cava.",
+  "inicio": 7.82,
+  "fim": 8.64
+ },
+ {
+  "n": 5,
+  "texto": "Mas o solo de cima é mole, e o prédio afundaria.",
+  "inicio": 9.08,
+  "fim": 11.66
+ },
+ {
+  "n": 6,
+  "texto": "Então máquinas cravam estacas de concreto bem fundo, até uma camada firme.",
+  "inicio": 12.16,
+  "fim": 16.62
+ },
+ {
+  "n": 7,
+  "texto": "Agora você ergue pilares e lajes, andar por andar, com um guindaste subindo junto.",
+  "inicio": 17.02,
+  "fim": 21.3
+ },
+ {
+  "n": 8,
+  "texto": "Só que o concreto tem um defeito.",
+  "inicio": 21.7,
+  "fim": 23.42
+ },
+ {
+  "n": 9,
+  "texto": "Ele aguenta esmagar, mas rasga fácil quando é puxado.",
+  "inicio": 23.8,
+  "fim": 26.74
+ },
+ {
+  "n": 10,
+  "texto": "Por isso, dentro dele, vão barras de aço.",
+  "inicio": 27.06,
+  "fim": 29.34
+ },
+ {
+  "n": 11,
+  "texto": "O aço segura o puxão, e o concreto segura o peso.",
+  "inicio": 29.34,
+  "fim": 32.38
+ },
+ {
+  "n": 12,
+  "texto": "E o mais estranho: os dois esticam com o calor quase na mesma medida.",
+  "inicio": 32.72,
+  "fim": 36.54
+ },
+ {
+  "n": 13,
+  "texto": "Se um esticasse mais, o prédio racharia.",
+  "inicio": 36.94,
+  "fim": 39.2
+ },
+ {
+  "n": 14,
+  "texto": "Falta só o tempo.",
+  "inicio": 39.7,
+  "fim": 40.7
+ },
+ {
+  "n": 15,
+  "texto": "O concreto leva cerca de vinte e oito dias para chegar na força planejada.",
+  "inicio": 41.18,
+  "fim": 45.5
+ },
+ {
+  "n": 16,
+  "texto": "Prédios altos até balançam um pouco com o vento, de propósito, para não quebrar.",
+  "inicio": 45.9,
+  "fim": 50.1
+ },
+ {
+  "n": 17,
+  "texto": "O segredo é fundação funda, mais concreto e aço trabalhando juntos.",
+  "inicio": 50.62,
+  "fim": 54.36
+ },
+ {
+  "n": 18,
+  "texto": "Agora me diz: você achava que o prédio era segurado pelo concreto ou pelo aço?",
+  "inicio": 54.36,
+  "fim": 59.2
+ },
+ {
+  "n": 19,
+  "texto": "Conta nos comentários.",
+  "inicio": 59.6,
+  "fim": 60.72
+ }
+]

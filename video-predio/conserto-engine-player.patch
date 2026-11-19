@@ -1,0 +1,23 @@
+--- a/engine/player.js	2026-11-03 21:22:40.000000000 +0000
++++ b/engine/player.js	2026-11-19 15:41:00.206857911 +0000
+@@ -885,6 +885,20 @@
+   }
+   return ks[ks.length - 1][1];
+ }
++// keyframes de vetores [[t,[x,y,z]], ...]; suave = ease in/out em cada trecho
++function chavesVec(ks, t, suave = true) {
++  if (t <= ks[0][0]) return ks[0][1];
++  for (let i = 1; i < ks.length; i++) {
++    if (t <= ks[i][0]) {
++      const [t0, v0] = ks[i - 1];
++      const [t1, v1] = ks[i];
++      let k = clamp((t - t0) / Math.max(1e-6, t1 - t0), 0, 1);
++      if (suave) k = k * k * (3 - 2 * k);
++      return v0.map((a, j) => lerp(a, v1[j], k));
++    }
++  }
++  return ks[ks.length - 1][1];
++}
+ const popBack = (x) => { const c = 1.70158; const k = x - 1; return 1 + (c + 1) * k * k * k + c * k * k; };
+ 
+ // ---------- legendas ----------
